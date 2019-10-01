@@ -1,0 +1,5 @@
+#!/bin/bash
+#Adds the current directory to a nightly backup task
+home_bin="${HOME}/bin"
+
+echo "${PWD}" >> $home_bin/backup_array_config.txt

@@ -1,0 +1,22 @@
+#!/bin/bash
+
+kernel_dir="/usr/src/linux"
+
+function read_run () {
+local prompt="$1"
+local command="$2"
+
+	read -p >&2 "$prompt" response
+	if [[ "${response^^}" != "Y" ]]
+	then
+		echo "Moving on from $command"
+	else
+		bash -c "$command"
+	fi
+
+}
+
+cd $kernel_dir
+read_run "Run make config first? [y/N]: " "make menuconfig" &&
+read_run "Recompile the kernel? This will update the current kernel, make sure you are certain! [y/N]: " "make -j8 && make -j8 modules_install && make install" &&
+read_run "Also update grub? [y/n]: " "grub-mkconfig -o /boot/grub/grub.cfg"

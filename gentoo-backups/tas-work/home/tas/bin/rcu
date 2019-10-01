@@ -1,0 +1,3 @@
+#!/bin/bash
+#Adds a service to default profile in open-rc
+rc-update add $1 default

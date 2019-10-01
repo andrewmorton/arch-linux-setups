@@ -1,0 +1,44 @@
+#!/bin/bash
+#Installs and sets up golang 1.12 on the host device
+tarball="golang_tarball.tar.gz";
+testInc=0;
+go_url="https://dl.google.com/go/go1.12.9.linux-amd64.tar.gz"
+
+if [[ -e /tmp/$tarball ]] 
+then
+	echo "$tarball found in /tmp."
+else
+	curl -k $go_url --output /tmp/$tarball
+fi
+if [[ -e /usr/local/go ]]
+then
+	echo "Found /usr/local/go"
+	echo "Moving on"
+else
+	echo "Extracting golang to /usr/local"
+	tar -C /usr/local -xvzf /tmp/$tarball
+fi
+echo "Updating path with /usr/local/go/bin"
+echo "export PATH=$PATH:/usr/local/go/bin;" >> /etc/profile
+##
+####Tests
+function run-all-tests() {
+
+testInc=$((testInc + 1));
+if [[ -e /tmp/$tarball ]] 
+then 
+	echo "$testInc PASS: /tmp/$tarball exists."
+else
+	echo "$testInc FAIL: /tmp/$tarball was not downloaded."
+fi
+
+testInc=$((testInc + 1));
+if [[ -e /usr/local/go/bin ]]
+then
+	echo "$testInc PASS: found golang in /usr/locl/go/bin"
+else
+	echo "$testInc FAIL: Golang was not extracted."
+fi
+}
+
+#run-all-tests()

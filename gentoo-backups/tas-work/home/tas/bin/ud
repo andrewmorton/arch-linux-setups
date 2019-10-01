@@ -1,0 +1,4 @@
+#!/bin/bash
+#Upgrades all things in world, including build deps
+
+emerge --ask --deep --with-bdeps=y --newuse @world

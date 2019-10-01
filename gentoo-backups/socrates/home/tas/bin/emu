@@ -1,0 +1,3 @@
+#!/bin/bash
+echo "Removing $1"
+emerge --ask --verbose --depclean "$1"

@@ -1,0 +1,5 @@
+#!/bin/bash
+echo "Syncing Repo with Gentoo"
+emerge --sync &&
+echo "System update"
+emerge --update --deep @world

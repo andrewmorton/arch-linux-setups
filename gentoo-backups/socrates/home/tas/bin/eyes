@@ -1,0 +1,4 @@
+#!/bin/bash
+emergeDir="/var/tmp/portage/*/*/temp/build.log"
+
+tail -f $emergeDir

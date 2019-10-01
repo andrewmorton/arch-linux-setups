@@ -1,0 +1,27 @@
+#!/bin/bash
+#Creates an alias for the given argument, or opens VIM on that alias if it exists
+ARG=$1;
+BIN="${BASH_SOURCE[0]%/*}"
+
+if [[ -z "$ARG" ]] 
+then
+	echo "\$ARG passed was empty."
+	exit;
+else
+	if [[ -f $BIN/$ARG ]] 
+	then 
+		vim $BIN/$ARG	
+	else
+		read -p "$ARG does not exist in $BIN, create alias? [y/N]: " RESPONSE
+		if [[ $RESPONSE != "y" ]] 
+		then 
+			echo "Nevermind then."
+		else
+			echo '#!/bin/bash' >> $BIN/$ARG
+			echo '#Enter comments for functionality here' >> $BIN/$ARG && 
+			vim $BIN/$ARG &&  
+			( chmod 770 $BIN/$ARG && exit 0 ) ||
+			( echo "Cleaning up" && rm $BIN/$ARG )
+		fi
+	fi
+fi

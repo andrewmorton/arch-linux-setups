@@ -1,0 +1,29 @@
+#!/bin/bash
+#Lists the doc line of a command unless verbose is specified (-v)
+
+parm1="$1"
+parm2="$2"
+bin="/usr/local/bin/ajm_bin"
+
+#Check arguments
+if [[ -z "$parm1" ]] && [[ -z "$parm2" ]]
+then 
+	ls -al $bin --color=auto
+else
+	if [[ "$parm1" = "-a" ]]
+	then
+		cat $bin/*
+		exit
+	fi
+	if [[ -z "$parm2" ]]
+	then
+		head -2 $bin/$parm1
+	else
+		if [[ "$parm1" = "-v" ]]
+		then 
+			cat $bin/$parm2
+		else
+			echo "$parm1 not recognized"
+		fi
+	fi
+fi

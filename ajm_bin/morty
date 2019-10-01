@@ -1,0 +1,4 @@
+#!/bin/bash
+#SSH to dev-morty from home network
+
+ssh amorton@dev-morty

@@ -1,0 +1,4 @@
+#!/bin/bash
+#Upgrades all packages for Fedora workstation/Server
+
+sudo dnf upgrade -y

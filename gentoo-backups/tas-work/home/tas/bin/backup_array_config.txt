@@ -1,0 +1,3 @@
+/home/tas/bin
+/home/tas/.config/i3
+/etc/portage/package.use

@@ -1,0 +1,6 @@
+#!/bin/bash
+#Vim ~/.config/i3/config to allow for easy editing
+
+vim ~/.config/i3/config
+
+
