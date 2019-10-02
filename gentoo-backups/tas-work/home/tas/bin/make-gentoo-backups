@@ -11,7 +11,7 @@ do
 mkdir -p $git_repo/$( realpath $dir) && cp -r $dir/* $git_repo/$dir
 done
 
-cd "$git_rep_root"
+cd $git_repo_root
 git add .
 git commit -m "$( date ) backup of gentoo"
 git push
