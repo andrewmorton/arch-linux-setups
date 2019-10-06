@@ -20,7 +20,7 @@ else
 			echo '#!/bin/bash' >> $BIN/$ARG
 			echo '#Enter comments for functionality here' >> $BIN/$ARG && 
 			vim $BIN/$ARG &&  
-			( chmod 770 $BIN/$ARG && exit 0 ) ||
+			( chmod 777 $BIN/$ARG && exit 0 ) ||
 			( echo "Cleaning up" && rm $BIN/$ARG )
 		fi
 	fi
