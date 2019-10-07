@@ -1,5 +1,6 @@
 #!/bin/bash
 #Mounts cbord.com/cfs
 
-sudo mount -t cifs //cbord.com/cfs /mnt/cbord.com/cfs/ --verbose -o "username=ajm2,uid=1000,addr=10.120.1.49,gid=1000"
+#sudo mount -t cifs //cbord.com/cfs /mnt/cbord.com/cfs/ --verbose -o "username=ajm2,uid=1000,addr=10.120.1.49,gid=1000"
+smbclient //cbord.com/cfs -U ajm2@cbord.com
 
