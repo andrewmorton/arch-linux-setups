@@ -200,7 +200,7 @@ mode $audio {
 
 mode $chrome {
 	####VARS
-	set $chrome_exec google-chrome-stable --force-device-scale-factor=1 --high-dpi-support=1 --new-window
+	set $chrome_exec google-chrome-stable --force-device-scale-factor=1.25 --high-dpi-support=1 --new-window
 
 	#Chrome mode for interacting with google chrome
 	bindsym g exec "$chrome_exec"
