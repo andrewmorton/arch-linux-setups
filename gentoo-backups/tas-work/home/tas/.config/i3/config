@@ -98,7 +98,7 @@ set $ws10 "10"
 
 #####
 #setup feh command
-set $feh exec --no-startup-id feh --xinerama-index 1 --bg-scale "/home/tas/Pictures/gentoo3.jpg"
+set $feh exec --no-startup-id feh --xinerama-index 1 --bg-scale "/home/tas/Pictures/gentoo5.jpg"
 
 # switch to workspace
 bindsym $mod+1 workspace $ws1;  $feh 
