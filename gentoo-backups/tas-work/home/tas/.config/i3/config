@@ -39,7 +39,7 @@ bindsym $mod+Escape kill
 # start dmenu (a program launcher)
 #bindsym $mod+d exec dmenu_run
 #shift to mod + space
-bindsym $mod+space exec dmenu_run
+bindsym $mod+d exec dmenu_run
 # There also is the (new) i3-dmenu-desktop which only displays applications
 # shipping a .desktop file. It is a wrapper around dmenu, so you need that
 # installed.
@@ -296,6 +296,8 @@ bindsym $mod2+$mod+Shift+x exec "sudo shutdown -h now"
 ######
 
 ###End Custom keybinds
+set $chrome_search exec --no-startup-id i3-msg 'workspace $ws5; exec /home/tas/.config/i3/google_search.sh'
+bindsym $mod+space exec i3-input -F '$chrome_search %s' 
 ##VARS 
 #Startup Programs:
 exec --no-startup-id nm-applet
