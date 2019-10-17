@@ -296,8 +296,8 @@ bindsym $mod2+$mod+Shift+x exec "sudo shutdown -h now"
 ######
 
 ###End Custom keybinds
-set $chrome_search exec --no-startup-id i3-msg 'workspace $ws5; exec /home/tas/.config/i3/google_search.sh'
-bindsym $mod+space exec i3-input -F '$chrome_search %s' 
+set $chrome_search /home/tas/.config/i3/google_search.sh
+bindsym $mod+space exec i3-input -F 'workspace $ws5 exec $chrome_search %s' 
 ##VARS 
 #Startup Programs:
 exec --no-startup-id nm-applet
