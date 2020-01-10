@@ -1,0 +1,20 @@
+#!/bin/bash
+#Starts a stopwatch, optionally outputs a message
+
+function timecat()  {
+	msg="$1"
+	default="Ctrl^C will stop the timer"
+
+	case "${msg}" in
+		'')
+			echo "$default" 
+			time cat
+			;;
+		*)
+			echo "$msg"
+			echo "$default" && time cat
+			;;
+	esac
+}
+
+timecat "$@"

@@ -1,3 +1,0 @@
-#!/bin/bash
-#runs emerge --ask --tree --verbose on the given arguments
-emerge --ask --tree --verbose $@

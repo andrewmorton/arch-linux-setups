@@ -1,0 +1,36 @@
+#!/bin/bash
+#Mounts and decrypts crypto_share
+
+mount_type="$1"
+
+function setup_cshare() {
+	echo >&2 "Establishing crytpo_share device"
+	cryptsetup open --key-file /mnt/key/crypto_share_key /home/tas/crypto_share.dat crypto_share
+	echo >&2 "Mounting crypto_share  encrypted file"
+	mount -t ext4 /dev/mapper/crypto_share /home/tas/crypto_share
+}
+
+
+function unmount_cshare() {
+	echo >&2 "Unmounting crypto_share"
+	umount /dev/mapper/crypto_share
+	echo >&2 "Closing crypto_share device"
+	cryptsetup close crypto_share	
+}
+
+
+# Establish flow control
+case ${mount_type} in
+	--unmount|-u)
+		unmount_cshare
+		;;
+	'')
+		setup_cshare
+		;;
+	*)
+		echo >&2 "CSHARE: "
+		echo >&2 "unexpected input ${mount_type}"
+		echo >&2 "usage: cshare [options]"
+		echo >&2 "where [options] in --umount, -u, or blank"
+		exit 1
+esac

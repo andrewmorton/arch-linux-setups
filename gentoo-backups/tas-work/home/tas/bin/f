@@ -1,4 +1,0 @@
-#!/bin/bash
-#Searches for a package with emerge
-
-emerge --search "$@"

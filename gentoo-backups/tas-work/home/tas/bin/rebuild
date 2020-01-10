@@ -1,4 +1,0 @@
-#!/bin/bash
-#Runs Reverse Dependency Rebuild
-
-revdep-rebuild

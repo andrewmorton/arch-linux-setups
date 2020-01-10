@@ -1,0 +1,5 @@
+#!/bin/bash
+
+default="@DEFAULT_SINK@"
+
+bash -c "pactl set-sink-mute $default false; pactl set-sink-volume $default +5%"

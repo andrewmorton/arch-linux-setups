@@ -1,8 +1,4 @@
 #!/bin/bash
-#installs the package provided as an argument
-if [ -z "$1" ]
-then
-	echo "Argument required in order to install a package with apt-get";
-else
-	sudo dnf install $1;
-fi
+#runs emerge --ask --tree --verbose on the given arguments
+
+pacman -S "$@"

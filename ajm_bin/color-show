@@ -1,0 +1,16 @@
+#!/bin/bash
+#Shows all of the colors that are set on the terminal
+
+FGCOUNT="${1:-16}"
+BGCOUNT="${2:-16}"
+echo "FGCOUNT=$FGCOUNT"
+echo "BGCOUNT=$BGCOUNT"
+    for fg_color in $(seq 0 $FGCOUNT); do
+        set_foreground=$(tput setaf $fg_color)
+        for bg_color in $(seq 0 $BGCOUNT); do
+            set_background=$(tput setab $bg_color)
+            echo -n $set_background$set_foreground
+            printf ' F:%s B:%s ' $fg_color $bg_color
+        done
+        echo $(tput sgr0)
+    done

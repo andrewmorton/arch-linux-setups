@@ -1,9 +1,31 @@
 #!/bin/bash
 ##SSH to an instance using the aws-templating key
-HOST=$1;
-if [ -z "$HOST" ] 
-then 
-	echo "shops: \$HOST cannot be empty.";
-else
-	ssh -i ~/.ssh/aws_templating $HOST;
-fi
+
+ARGS=( "$@" )
+OdysseyHost="3.85.19.185"
+SFTPHost="sftp.aws.cbord.com"
+
+function local_shops() {
+	HOST="$1"
+
+	if [ -z "$HOST" ] 
+	then 
+		echo "shops: HOST cannot be empty."
+	else
+		ssh -i ~/.ssh/aws_templating "$HOST"
+	fi
+}
+
+echo 
+
+case "${ARGS[0]}" in
+	-o|--odyssey)
+		local_shops "ec2-user@$OdysseyHost"
+		;;
+	-s|--sftp)
+		local_shops "centos@$SFTPHost"
+		;;
+	*)
+		local_shops "${ARGS[0]}"
+		;;
+esac

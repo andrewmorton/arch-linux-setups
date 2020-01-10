@@ -1,0 +1,11 @@
+#!/bin/bash
+# Counts down a timer and alerts in the console when Time is up
+
+function timer() {
+	time="$1"
+	msg=$( if [[ ! -z "$2" ]]; then echo "$2"; else echo "timer is done!"; fi; )
+	
+	sleep "$time" && zenity --info --text "${msg}"
+}
+
+timer "$@"

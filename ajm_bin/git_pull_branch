@@ -1,0 +1,6 @@
+#!/bin/bash
+# Pulls the supplied branch from git
+
+branch="$1"
+
+git fetch && git checkout "${branch}"

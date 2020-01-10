@@ -1,0 +1,4 @@
+#!/bin/bash
+#Run AWS workspaces
+cd '/home/tas/.wine/drive_c/Program Files (x86)/Amazon Web Services, Inc/Amazon WorkSpaces'
+wine './workspaces.exe' &

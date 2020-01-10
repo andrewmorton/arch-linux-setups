@@ -1,0 +1,9 @@
+#!/bin/bash
+#Monitors i3 activity to current terminal
+
+function mon_i3 () {
+	local items="$1"
+	i3-msg -t subscribe -m "[ \"${items}\" ]"
+}
+
+mon_i3 "$@"

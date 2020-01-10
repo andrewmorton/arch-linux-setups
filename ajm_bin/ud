@@ -1,0 +1,4 @@
+#!/bin/bash
+#Upgrades all things in world, including build deps
+
+pacman -Syu
