@@ -29,6 +29,13 @@ xorg-server
 xorg-xinput
 mesa
 xf86-video-nouveau
+# Sound Utilities
+pulseaudio
+pavucontrol
+alsa-utils
+alsa-firmware
+sof-firmware
+alsa-ucm-conf
 # Archive Utilities
 p7zip
 zip
