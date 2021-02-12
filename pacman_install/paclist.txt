@@ -1,0 +1,31 @@
+# programming stuff
+git
+python
+ruby
+clisp
+vim
+# workflow tools
+mutt
+task
+# Nice things
+openssh
+vlc
+man-db
+man-pages
+texinfo
+xsecurelock
+qt6-base
+qt6-doc
+# Applications
+firefox
+konsole
+knewstuff
+knotifyconfig
+kparts
+kpty
+# Fonts
+ttf-cascadia-code
+ttf-fira-code
+ttf-fira-mono
+otf-fira-mono
+ttf-jetbrains-mono

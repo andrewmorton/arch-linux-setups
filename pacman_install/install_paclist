@@ -1,0 +1,26 @@
+#!/bin/bash
+
+# Installs package list using pacman
+
+PACKAGE_LIST="$1"
+
+if [ -z $PACKAGE_LIST ]
+then
+	echo "Appears an empty package list argument was passed"
+	echo "Expected list of packages."
+	echo "exit 1"
+	exit 1
+fi
+
+echo "If you haven't run pacman -Syu update, you should do that before running install_packlist"
+echo
+read -p "Continue? [y,n]: " RESPONSE
+
+if [ "$RESPONSE" != "y" ]
+then
+	echo "Ok. Exiting script"
+	echo "exit 1"
+	exit 1
+fi
+
+pacman -S $( cat $PACKAGE_LIST | sed "s/#.*//g" )

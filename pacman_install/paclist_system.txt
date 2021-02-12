@@ -1,0 +1,40 @@
+# Bootloader
+grub
+efibootmgr
+# Filesystems
+rsync
+dosfstools
+e2fsprogs
+lvm2
+# Hardware support
+bluez
+b43-fwcutter
+linux-headers
+gpm
+libinput
+intel-ucode
+amd-ucode
+base-devel
+# Networking
+networkmanager
+iw
+wpa_supplicant
+dhclient
+openssl
+gnome-keyring
+# Window Server
+xorg
+xorg-apps
+xorg-server
+xorg-xinput
+mesa
+xf86-video-nouveau
+# Archive Utilities
+p7zip
+zip
+gzip
+unrar
+tar
+# Login and Window Manager
+sddm
+spectrwm
