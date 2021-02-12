@@ -1,3 +1,0 @@
-#!/bin/bash
-
-emerge --ask --changed-use --deep @world

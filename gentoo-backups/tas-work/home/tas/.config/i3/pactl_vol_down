@@ -1,5 +1,0 @@
-#!/bin/bash
-
-default="@DEFAULT_SINK@"
-
-bash -c "pactl set-sink-volume $default -3%"

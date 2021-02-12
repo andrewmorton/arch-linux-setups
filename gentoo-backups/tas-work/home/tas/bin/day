@@ -1,4 +1,0 @@
-#!/bin/bash
-#Opens vim on the daily notes directory
-
-vim ~/daily_notes

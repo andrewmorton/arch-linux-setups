@@ -1,8 +1,0 @@
-#!/bin/bash
-##Moves the user to BitBucket repos
-function cdBitBucket() {
-cd $bitbucket
-}
-
-echo "bit: Don't forget the '.'"
-cdBitBucket;

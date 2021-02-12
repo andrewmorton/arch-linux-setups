@@ -1,8 +1,0 @@
-#!/bin/bash
-##Moves user to the windows directories
-function cdWin () {
-cd $win;
-}
-
-echo "win: don't forget the '.'";
-cdWin;

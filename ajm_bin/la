@@ -1,4 +1,0 @@
-#!/bin/bash
-#Shortcut for ls -al
-
-ls -al --color=auto;

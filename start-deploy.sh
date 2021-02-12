@@ -1,1 +1,0 @@
-./deploy/master.sh

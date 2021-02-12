@@ -1,7 +1,0 @@
-g Chrome-New-window
-y Youtube
-q Jira-CRM
-m Odyssey-Direct-Runbook
-t Teams
-o Outlook
-win+h Display-help

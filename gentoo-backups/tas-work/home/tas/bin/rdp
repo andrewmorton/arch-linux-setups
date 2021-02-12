@@ -1,7 +1,0 @@
-#!/bin/bash
-#Connects via RDP to a remote host
-
-read -p >&2 "Remote Host: " remote_host
-read -p >&2 "Username: " host_username
-xfreerdp /v:"${remote_host:?NO REMOTE HOST SUPPLIED}" /u:"${host_username:?NO USERNAME SUPPLIED}" +clipboard
-

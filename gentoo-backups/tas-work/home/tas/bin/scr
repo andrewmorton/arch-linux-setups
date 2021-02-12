@@ -1,5 +1,0 @@
-#!/bin/bash
-#Opens a text file in temporary workspace for notes
-
-vim /tmp/scratch.txt
-

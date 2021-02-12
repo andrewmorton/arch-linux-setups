@@ -1,3 +1,0 @@
-#!/bin/bash
-#Purges unused packages from the system
-sudo apt autoremove;

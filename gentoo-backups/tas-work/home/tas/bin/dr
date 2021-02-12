@@ -1,5 +1,0 @@
-#!/bin/bash
-#Reloads Dunst
-
-killall dunst; 
-notify-send "Reloading!!"

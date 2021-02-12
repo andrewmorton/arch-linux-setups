@@ -1,8 +1,0 @@
-#!/bin/bash
-#begins running a process in the background and disowns child from Parent
-
-function disown_process () {
-	bash -c "$1" & disown 
-}
-
-disown_process "$@"

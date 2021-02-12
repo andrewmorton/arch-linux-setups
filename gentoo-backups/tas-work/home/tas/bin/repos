@@ -1,9 +1,0 @@
-#!/bin/bash
-#cd to the provided repo
-
-echo "Change to which Repo?: "
-echo "
-1) Odyssey
-2) Shibboleth
-3) Solana
-"
