@@ -29,19 +29,20 @@ xorg-server
 xorg-xinput
 mesa
 xf86-video-nouveau
-# Sound Utilities
+# audio Utilities
 pulseaudio
 pavucontrol
 alsa-utils
 alsa-firmware
 sof-firmware
 alsa-ucm-conf
-# Archive Utilities
+# archive Utilities
 p7zip
 zip
 gzip
 unrar
 tar
+ar
 # Login and Window Manager
 sddm
 spectrwm

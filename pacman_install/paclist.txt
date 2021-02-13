@@ -14,8 +14,9 @@ man-db
 man-pages
 texinfo
 xsecurelock
-qt6-base
-qt6-doc
+qt5-base
+qt5-doc
+gtk3
 # Applications
 firefox
 konsole
