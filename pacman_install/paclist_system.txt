@@ -27,9 +27,12 @@ xorg
 xorg-apps
 xorg-server
 xorg-xinput
+xorg-drivers
 mesa
-xf86-video-nouveau
 xf86-video-intel
+xf86-video-ati
+xf86-video-amdgpu
+libva-intel-driver
 # audio Utilities
 pulseaudio
 pavucontrol
@@ -44,6 +47,8 @@ unzip
 gzip
 unrar
 tar
-# Login and Window Manager
+# login and window Manager
 sddm
-spectrwm
+arandr
+bspwm
+picom

@@ -1,0 +1,17 @@
+# font
+ttf-liberation
+# gpu and mesa dependencies
+vulkan-intel
+vulkan-mesa-layers
+vulkan-icd-loader
+libva-mesa-driver
+mesa-vdpau
+opengl-man-pages
+# 32bit mesa
+lib32-mesa-vdpau
+lib32-libva-mesa-driver
+lib32-vulkan-icd-loader
+lib32-vulkan-intel
+lib32-mesa
+# client
+steam

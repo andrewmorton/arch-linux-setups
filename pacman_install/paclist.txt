@@ -20,6 +20,7 @@ qt5-base
 qt5-doc
 gtk3
 curl
+feh
 # Applications
 firefox
 konsole
@@ -28,6 +29,9 @@ knotifyconfig
 kparts
 kpty
 discord
+imagemagick
+ghostscript
+imagemagick-doc
 # Fonts
 ttf-cascadia-code
 ttf-fira-code
