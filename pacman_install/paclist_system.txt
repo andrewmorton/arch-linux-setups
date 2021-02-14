@@ -29,6 +29,7 @@ xorg-server
 xorg-xinput
 mesa
 xf86-video-nouveau
+xf86-video-intel
 # audio Utilities
 pulseaudio
 pavucontrol
@@ -39,10 +40,10 @@ alsa-ucm-conf
 # archive Utilities
 p7zip
 zip
+unzip
 gzip
 unrar
 tar
-ar
 # Login and Window Manager
 sddm
 spectrwm

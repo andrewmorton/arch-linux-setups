@@ -1,0 +1,2 @@
+# Graphics Switching
+optimus-manager-git

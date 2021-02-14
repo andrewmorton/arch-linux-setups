@@ -1,0 +1,13 @@
+#!/bin/bash
+
+PACKAGE_LIST="$1"
+
+if [ -z $PACKAGE_LIST ]
+then
+	echo "Appears an empty package list argument was passed"
+	echo "Expected list of packages."
+	echo "exit 1"
+	exit 1
+fi
+
+paru -S $( cat $PACKAGE_LIST | sed "s/#.*//g" )

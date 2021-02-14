@@ -3,7 +3,9 @@ git
 python
 ruby
 clisp
-vim
+neovim
+xclip
+xsel
 # workflow tools
 mutt
 task
@@ -17,6 +19,7 @@ xsecurelock
 qt5-base
 qt5-doc
 gtk3
+curl
 # Applications
 firefox
 konsole
@@ -24,6 +27,7 @@ knewstuff
 knotifyconfig
 kparts
 kpty
+discord
 # Fonts
 ttf-cascadia-code
 ttf-fira-code
