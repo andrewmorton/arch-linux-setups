@@ -1,3 +1,10 @@
 #!/bin/bash
 
-# Install Paclist txt files
+# Install paclist_system
+# install paclist.txt
+# run multilib setup
+# install nvidia
+# install steaam
+# install paru
+# install optimus manager
+# reboot
