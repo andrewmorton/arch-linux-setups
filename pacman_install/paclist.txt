@@ -6,6 +6,7 @@ clisp
 neovim
 xclip
 xsel
+go
 # workflow tools
 mutt
 task
@@ -32,6 +33,7 @@ discord
 imagemagick
 ghostscript
 imagemagick-doc
+jq
 # Fonts
 ttf-cascadia-code
 ttf-fira-code

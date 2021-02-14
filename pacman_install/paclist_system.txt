@@ -50,5 +50,9 @@ tar
 # login and window Manager
 sddm
 arandr
+autorandr
 bspwm
 picom
+sxhkd
+# system utilities
+htop
