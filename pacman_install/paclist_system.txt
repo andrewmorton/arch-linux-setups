@@ -50,6 +50,7 @@ tar
 # login and window Manager
 sddm
 arandr
+python-cairo
 autorandr
 bspwm
 picom

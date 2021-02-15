@@ -1,0 +1,10 @@
+#!/bin/bash
+
+#####
+# Creates new scratch notes
+# These often become zettlekasten notes
+#####
+
+timestamp=$( date +"%H%M%S" )
+
+nvim /tmp/scratch_${timestamp}.txt
