@@ -47,4 +47,7 @@ echo "Running install_paclist on paclist.txt"
 # install steaam
 # install paru
 # install optimus manager
+# Enable sddm and NetworkManger
+systemctl enable sddm
+systemctl enabel NetworkManager
 # reboot
