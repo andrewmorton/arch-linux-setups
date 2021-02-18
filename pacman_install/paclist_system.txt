@@ -57,3 +57,6 @@ picom
 sxhkd
 # system utilities
 htop
+# power management and laptops
+acpi
+tlp
