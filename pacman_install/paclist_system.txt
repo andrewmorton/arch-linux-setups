@@ -55,6 +55,7 @@ autorandr
 bspwm
 picom
 sxhkd
+dmenu
 # system utilities
 htop
 # power management and laptops
