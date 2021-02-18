@@ -61,9 +61,4 @@ groupadd sudo
 read -p "Enter the name of your RAD user: " USERNAME
 useradd -m -G sudo,users $USERNAME
 
-##### Restore dotfiles and config files
-# Restores the dotfiles that are kept in $REPO/dofiles to the newly created user folder
-##### END Restore dotfiles
-
-cat ./dotfiles/bashrc > /home/$USERNAME/.bashrc
 # reboot
