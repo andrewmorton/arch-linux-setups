@@ -1,0 +1,2 @@
+# Installs microsoft teams from AUR
+teams
