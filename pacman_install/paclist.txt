@@ -22,6 +22,11 @@ qt5-doc
 gtk3
 curl
 feh
+python-pyqt5
+python-pip
+python-lxml
+python-genshi
+python-setuptools
 # Applications
 firefox
 konsole
