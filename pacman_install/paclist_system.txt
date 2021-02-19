@@ -58,6 +58,7 @@ sxhkd
 dmenu
 # system utilities
 htop
+nautilus
 # power management and laptops
 acpi
 tlp
