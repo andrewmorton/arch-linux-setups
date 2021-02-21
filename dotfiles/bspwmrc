@@ -18,4 +18,4 @@ bspc rule -a Kupfer.py focus=on
 bspc rule -a Screenkey manage=off
 
 picom --backend glx &
-# feh --bg-fill --random $HOME/Pictures/bg &
+feh --bg-fill --random --recursive $HOME/Pictures/bg &
