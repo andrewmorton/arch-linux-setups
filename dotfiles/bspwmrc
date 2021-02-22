@@ -2,8 +2,6 @@
 
 pgrep -x sxhkd > /dev/null || sxhkd &
 
-bspc monitor -d I II III IV V VI VII VIII IX X
-
 bspc config border_width         2
 bspc config window_gap          12
 
@@ -19,3 +17,14 @@ bspc rule -a Screenkey manage=off
 
 picom --backend glx &
 feh --bg-fill --random --recursive $HOME/Pictures/bg &
+
+# Set HDMI1 or HDMI0 to be the primary Display if detected
+hdmi = $( xrandr --query | grep 'HDMI' )
+
+if [ $hdmi == *connected* ] 
+then
+	bspc monitor HDMI1 -d  I III V VI VII VIII IX X
+	bspc monitor eDPI1 -d  II IV
+else
+	bspc monitor eDPI1 -d  I II III IV V VI VII VIII IX X
+fi
