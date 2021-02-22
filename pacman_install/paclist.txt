@@ -39,6 +39,7 @@ imagemagick
 ghostscript
 imagemagick-doc
 jq
+flameshot
 # Fonts
 ttf-cascadia-code
 ttf-fira-code
