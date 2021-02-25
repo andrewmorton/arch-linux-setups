@@ -21,6 +21,7 @@ iw
 wpa_supplicant
 dhclient
 openssl
+dnsutils
 gnome-keyring
 # Window Server
 xorg
