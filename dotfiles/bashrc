@@ -10,3 +10,6 @@ PS1='[\u@\h \W]\$ '
 
 export PATH="$PATH:/$HOME/bin"
 export EDITOR="nvim"
+
+# Fixing Java app window draw for JetBrains IDEs
+export _JAVA_AWT_WM_NONREPARENTING=1

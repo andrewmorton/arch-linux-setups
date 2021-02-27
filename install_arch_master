@@ -50,13 +50,10 @@ echo "Running install_paclist on paclist_system.txt"
 echo "Running install_paclist on paclist.txt"
 ./pacman_install/install_paclist ./pacman_install/paclist.txt &&
 	echo "Successful"
-# install nvidia
-# install steaam
-# install paru
-# install optimus manager
+
 # Enable sddm and NetworkManger
 systemctl enable sddm
-systemctl enabel NetworkManager
+systemctl enable NetworkManager
 
 # Create sudo group
 groupadd sudo

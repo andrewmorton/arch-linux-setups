@@ -1,2 +1,5 @@
 # Install jetbrains toolbox from AUR
 jetbrains-toolbox
+cython
+ipython
+libdbusmenu-glib

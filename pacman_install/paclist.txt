@@ -19,6 +19,22 @@ texinfo
 xsecurelock
 qt5-base
 qt5-doc
+python-dbus
+python-opengl
+qt5-connectivity
+qt5-declarative
+qt5-multimedia
+qt5-quick3d
+qt5-remoteobjects
+qt5-serialport
+qt5-speech
+qt5-svg
+qt5-tools
+qt5-webkit
+qt5-websockets
+qt5-x11extras
+qt5-xmlpatterns
+sip
 gtk3
 curl
 feh
@@ -40,9 +56,14 @@ ghostscript
 imagemagick-doc
 jq
 flameshot
-# Fonts
+# fonts
+ttf-font
 ttf-cascadia-code
 ttf-fira-code
 ttf-fira-mono
 otf-fira-mono
 ttf-jetbrains-mono
+# java
+jdk11-openjdk
+java11-openjfx
+jdk8-openjdk
