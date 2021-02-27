@@ -12,15 +12,18 @@ then
 	exit 1
 fi
 
-echo "If you haven't run pacman -Syu update, you should do that before running install_packlist"
+echo "If you haven't run a 'pacman -Syu' update, you should do that before running install_packlist"
 echo
-read -p "Continue? [y,n]: " RESPONSE
+read -p "Move on without update? [Y/n]: " RESPONSE
 
-if [ "$RESPONSE" != "y" ]
+if [ "$RESPONSE" == "y" ] || \
+	[ "$RESPONSE" == "Y" ] || \
+	[ "$RESPONSE" == "" ]
 then
-	echo "Ok. Exiting script"
-	echo "exit 1"
-	exit 1
+	echo "Moving forward"
+elif [ "$RESPONSE" == "n" ]
+then
+	sudo pacman -Syu
 fi
 
-pacman -S --needed $( cat $PACKAGE_LIST | sed "s/#.*//g" )
+sudo pacman -S --needed $( cat $PACKAGE_LIST | sed "s/#.*//g" )
