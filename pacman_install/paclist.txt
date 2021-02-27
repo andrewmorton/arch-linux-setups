@@ -11,6 +11,8 @@ go
 mutt
 task
 # Nice things
+docker
+fortune-mod
 openssh
 vlc
 man-db
