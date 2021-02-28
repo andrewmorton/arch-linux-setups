@@ -6,10 +6,29 @@
 [[ $- != *i* ]] && return
 
 alias ls='ls --color=auto'
-PS1='[\u@\h \W]\$ '
+
+# Custom prompt setup
+
+function check_error() {
+	if [ $? != 0 ]
+	then
+		echo ""
+		echo "last command:$( history | tail -n 1 | sed 's/[0-9]\+//g' )"
+	else
+		echo ""
+	fi
+}
+
+PS1='$(check_error)\n[\u@\h \W] - \n$: '
+PS2='=>>'
 
 export PATH="$PATH:/$HOME/bin"
 export EDITOR="nvim"
 
 # Fixing Java app window draw for JetBrains IDEs
 export _JAVA_AWT_WM_NONREPARENTING=1
+
+# echo fortune
+echo -e "\n"
+fortune -a
+echo -e "\n"

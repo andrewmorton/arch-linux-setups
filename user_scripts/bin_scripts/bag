@@ -1,0 +1,41 @@
+#!/bin/bash
+
+off="$1"
+
+
+if [ -z "$off" ]
+then
+        echo "################################################################################"
+        echo ""
+        echo "Usage: "
+        echo "-u: Unmount"
+        echo "-dev: mount dev share"
+        echo "-gen: mount general share"
+        echo "-med: mount Media share"
+        echo ""
+        echo "################################################################################"
+        exit 1
+fi
+
+function change_mount()
+{
+        folder="$1"
+        user="$2"
+
+        sudo mount -t cifs //bag-of-holding/$folder ~/smb_nas -o username=$user,gid=1000,uid=1000,dir_mode=0770
+}
+
+case "$off" in
+        -u)
+                sudo umount ~/smb_nas
+                ;;
+        -dev)
+                change_mount "Repos" "dev-service"
+                ;;
+        -gen)
+                change_mount "general" "general"
+                ;;
+        -med)
+                change_mount "Media" "media-service"
+                ;;
+esac

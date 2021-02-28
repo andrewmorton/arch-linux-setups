@@ -1,0 +1,20 @@
+#!/bin/bash
+
+option="$1"
+url="$2"
+
+if [ "$option" = "--config" ]; then
+        nvim ~/.config/youtube-dl/config
+        exit 0
+fi
+
+if [ -z $url ] && ! [ -z $option ]; then
+        url="$option"
+fi
+
+if [ -z "$url" ]; then
+        echo "Handed empty url."
+        exit 1
+else
+        youtube-dl "$url"
+fi
