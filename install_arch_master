@@ -1,6 +1,6 @@
 #!/bin/bash
 
-# Finish Arch setups
+# Finish Arch setups, run after first pacstrap in new env
 ln -sf /usr/share/zoneinfo/America/New_York /etc/localtime
 
 # Sync time
@@ -12,6 +12,13 @@ echo "LANG=en_US.UTF-8" >> /etc/locale.conf
 echo "Generating locales"
 locale-gen
 echo "locale-gen was run"
+
+# Set Java window drawing for Jetbrains IDE
+echo """
+# Fixing Java app window draw for JetBrains IDEs
+export _JAVA_AWT_WM_NONREPARENTING=1
+""" >> /etc/environment
+
 
 ##### Configure network
 # Collect user information regarding their chosen hostname
@@ -51,10 +58,15 @@ echo "Running install_paclist on paclist.txt"
 ./pacman_install/install_paclist ./pacman_install/paclist.txt &&
 	echo "Successful"
 
+# Setup autorandr "no_connections" as default profile
+echo "Setting auotrandr no_connections profile"
+autorandr -s no_connections
+
 # Enable sddm and NetworkManger
 systemctl enable sddm
 systemctl enable NetworkManager
 
+##### User management
 # Create sudo group
 groupadd sudo
 # useradd
