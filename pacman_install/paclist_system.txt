@@ -60,6 +60,8 @@ dmenu
 # system utilities
 htop
 nautilus
+zsh
+zsh-lovers
 # power management and laptops
 acpi
 tlp

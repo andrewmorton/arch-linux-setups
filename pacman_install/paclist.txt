@@ -7,6 +7,8 @@ neovim
 xclip
 xsel
 go
+nodejs-lts-fermium
+npm
 # workflow tools
 mutt
 task
