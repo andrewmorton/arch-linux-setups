@@ -14,12 +14,10 @@ function check_error() {
 	then
 		echo ""
 		echo "last command:$( history | tail -n 1 | sed 's/[0-9]\+//g' )"
-	else
-		echo ""
 	fi
 }
 
-PS1='$(check_error)\n[\u@\h \W] - \n$: '
+PS1='[\u@\h \W] - $(check_error)\n$: '
 PS2='=>>'
 
 export PATH="$PATH:/$HOME/bin"
