@@ -15,10 +15,14 @@ bspc rule -a Screenkey manage=off
 # Use autorandr profiles to set bspwm workspaces
 auto_response=$( autorandr --current )
 
-if [[ $auto_response == "home_monitors" ]]
+if [[ $auto_response == "work_monitors" ]]
 then
 	bspc monitor HDMI1 -d  2 3 5 9 0
-	bspc monitor -d  1 4 6 7 8
+	bspc monitor eDP1 -d  1 4 6 7 8
+elif [[ $auto_response == "home_monitors" ]]
+then
+	bspc monitor HDMI1 -d  2 3 5 9 0
+	bspc monitor eDP-1 -d  1 4 6 7 8
 elif [[ $auto_response == "no_connections" ]]
 then
 	bspc monitor -d  1 2 3 4 5 6 7 8 9 0
@@ -26,7 +30,3 @@ fi
 
 picom --backend glx &
 feh --bg-fill --random --recursive $HOME/Pictures/bg &
-
-# Startup programs
-bspc desktop --focus ^0 && konsole --tabs-from-file $HOME/bin/konsole_startup_tabs &
-bspc desktop --focus ^1
