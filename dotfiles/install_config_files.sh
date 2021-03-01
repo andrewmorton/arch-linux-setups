@@ -9,6 +9,7 @@ if ! [ -d $HOME/.config/bspwm ] || ! [ -d $HOME/.config/sxhkd ]
 then
 	mkdir -p $HOME/.config/bspwm
 	mkdir -p $HOME/.config/sxhkd
+	mkdir -p $HOME/.config/nvim
 	mkdir -p $HOME/Pictures
 fi
 
@@ -16,6 +17,7 @@ fi
 ln -sf $this_dir/bashrc $HOME/.bashrc
 ln -sf $this_dir/bspwmrc $HOME/.config/bspwm/bspwmrc
 ln -sf $this_dir/sxhkdrc $HOME/.config/sxhkd/sxhkdrc
+ln -sf $this_dir/init.vim $HOME/.config/nvim/init.vim
 
 # Make sym link to git pictures folder
 ln -sf $this_dir/bg $HOME/Pictures/bg
