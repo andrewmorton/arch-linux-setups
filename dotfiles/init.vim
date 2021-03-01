@@ -39,6 +39,10 @@ Plug 'OmniSharp/omnisharp-vim'
 " COC
 Plug 'neoclide/coc.nvim', {'branch': 'release'}
 
+" Powershell
+Plug 'pprovost/vim-ps1'
+
+
 call plug#end()
 
 "End Plugin list
