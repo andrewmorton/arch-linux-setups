@@ -7,4 +7,4 @@
 
 timestamp=$( date +"%H%M%S" )
 
-nvim /tmp/scratch_${timestamp}.txt
+nvim /tmp/scratch_${timestamp}.md
