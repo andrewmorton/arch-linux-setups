@@ -20,4 +20,4 @@ ln -sf $this_dir/sxhkdrc $HOME/.config/sxhkd/sxhkdrc
 ln -sf $this_dir/init.vim $HOME/.config/nvim/init.vim
 
 # Make sym link to git pictures folder
-ln -sf $this_dir/bg $HOME/Pictures/bg
+ln -sf -t $this_dir/bg $HOME/Pictures/bg
