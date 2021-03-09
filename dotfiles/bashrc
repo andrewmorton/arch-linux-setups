@@ -26,5 +26,5 @@ export EDITOR="nvim"
 
 # echo fortune
 echo -e "\n"
-fortune -a
+fortune 
 echo -e "\n"
