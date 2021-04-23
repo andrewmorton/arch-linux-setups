@@ -23,6 +23,7 @@ dhclient
 openssl
 dnsutils
 gnome-keyring
+ipcalc
 # Window Server
 xorg
 xorg-apps
