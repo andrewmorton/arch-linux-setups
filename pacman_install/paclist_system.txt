@@ -64,6 +64,7 @@ nautilus
 zsh
 zsh-lovers
 bc
+reflector
 # power management and laptops
 acpi
 tlp
