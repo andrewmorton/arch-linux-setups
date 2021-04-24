@@ -62,6 +62,7 @@ htop
 nautilus
 zsh
 zsh-lovers
+bc
 # power management and laptops
 acpi
 tlp

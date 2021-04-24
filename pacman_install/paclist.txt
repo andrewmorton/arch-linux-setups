@@ -9,6 +9,7 @@ xsel
 go
 nodejs-lts-fermium
 npm
+mit-scheme
 # workflow tools
 mutt
 task
@@ -47,6 +48,13 @@ python-pip
 python-lxml
 python-genshi
 python-setuptools
+libreoffice-still
+gdb
+gstreamer
+gst-libav
+gst-plugins-base
+gst-plugins-good
+gst-plugins-ugly
 # Applications
 firefox
 konsole
