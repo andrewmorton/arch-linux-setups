@@ -4,12 +4,14 @@
 
 this_dir=$(pwd)
 
+# TODO: Convert this to Python to use a dictionary instead of hardcoding
 # find if userhome/.config exists, if not make it
 if ! [ -d $HOME/.config/bspwm ] || ! [ -d $HOME/.config/sxhkd ]
 then
 	mkdir -p $HOME/.config/bspwm
 	mkdir -p $HOME/.config/sxhkd
 	mkdir -p $HOME/.config/nvim
+	mkdir -p $HOME/.config/wired
 	mkdir -p $HOME/Pictures
 fi
 
@@ -18,6 +20,7 @@ ln -sf $this_dir/bashrc $HOME/.bashrc
 ln -sf $this_dir/bspwmrc $HOME/.config/bspwm/bspwmrc
 ln -sf $this_dir/sxhkdrc $HOME/.config/sxhkd/sxhkdrc
 ln -sf $this_dir/init.vim $HOME/.config/nvim/init.vim
+ln -sf $this_dir/wired.ron $HOME/.config/wired/wired.ron
 
 # Make sym link to git pictures folder
 ln -sf -t $this_dir/bg $HOME/Pictures/bg
