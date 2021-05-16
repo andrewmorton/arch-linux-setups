@@ -3,17 +3,18 @@ git
 python
 ruby
 clisp
-neovim
 xclip
 xsel
 go
 nodejs-lts-fermium
 npm
-mit-scheme
+# mit-scheme
 # workflow tools
 mutt
 task
 # Nice things
+cowsay
+lolcat
 docker
 fortune-mod
 openssh
@@ -43,6 +44,7 @@ sip
 gtk3
 curl
 feh
+wget
 python-pyqt5
 python-pip
 python-lxml
@@ -68,6 +70,8 @@ ghostscript
 imagemagick-doc
 jq
 flameshot
+texlive-most
+biber
 # fonts
 ttf-font
 ttf-cascadia-code

@@ -6,6 +6,9 @@ call plug#begin('~/.local/share/nvim/site/plugged')
 
 " Declare the list of plugins.
 
+"ALE syntax checker
+Plug 'dense-analysis/ale'
+
 "Gutter plugins
 Plug 'vim-airline/vim-airline'
 Plug 'vim-airline/vim-airline-themes'
@@ -17,17 +20,12 @@ Plug 'tpope/vim-fugitive'
 " Polyglot
 Plug 'sheerun/vim-polyglot'
 
-"ALE syntax checker
-Plug 'dense-analysis/ale'
 
 " Vim rust
 Plug 'rust-lang/rust.vim'
 
 " Commentary
 Plug 'tpope/vim-commentary'
-
-" Neoterm
-Plug 'kassio/neoterm'
 
 " Terraform support
 Plug 'hashivim/vim-terraform'
@@ -42,12 +40,24 @@ Plug 'neoclide/coc.nvim', {'branch': 'release'}
 " Powershell
 Plug 'pprovost/vim-ps1'
 
+" SnipRun
+Plug 'michaelb/sniprun', {'do': 'bash install.sh'}
+
+" Tree-sitter
+Plug 'nvim-treesitter/nvim-treesitter', {'do': ':TSUpdate'} 
+
+" Latex
+Plug 'vim-latex/vim-latex'
+
 
 call plug#end()
 
 "End Plugin list
 
 """"""" Plugin Configurations
+
+"Vim-latex
+let g:tex_flavor='latex'
 
 "Vim Terraform
 " (Optional) Default: 1, enable(1)/disable(0) terraform module registry completion
@@ -138,9 +148,6 @@ set nocp
 set autoindent
 set fileformat=unix
 
-"highlight clear ALESignColumn
-"highlight clear SignColumn
-
 "formatting for yaml
 autocmd FileType yaml setlocal ts=2 sts=2 sw=2 expandtab
 
@@ -166,8 +173,6 @@ set fo+=w
 
 
 "Keybindings
-"open terminal at bottom:
-nnoremap <unique> ,t :bot term ++rows=10<CR>
 
 "Paste on
 nnoremap <unique> ,p :set paste<CR>
