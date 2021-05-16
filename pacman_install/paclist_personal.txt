@@ -7,3 +7,12 @@ zathura-ps
 evince
 # Usability
 ranger
+## Ranger updates
+atool
+ffmpegthumbnailer
+highlight
+lynx
+mediainfo
+odt2txt
+w3m
+perl-image-exiftool
