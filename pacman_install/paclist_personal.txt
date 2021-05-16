@@ -4,3 +4,6 @@ zathura-cb
 zathura-djvu
 zathura-pdf-mupdf
 zathura-ps
+evince
+# Usability
+ranger
