@@ -1,6 +1,6 @@
 (
     max_notifications: 0,
-    min_window_width: 2,
+    min_window_width: 3,
     min_window_height: 1,
 
     timeout: 10000,
@@ -61,7 +61,7 @@
                 ellipsize: Middle,
                 color: Color(hex: "#ebdbb2"),
                 padding: Padding(left: 7.0, right: 7.0, top: 7.0, bottom: 0.0),
-                dimensions: (width: (min: 50, max: 150), height: (min: 0, max: 0)),
+                dimensions: (width: (min: 75, max: 150), height: (min: 0, max: 0)),
             )),
         ),
 
@@ -75,7 +75,7 @@
                 font: "Arial 11",
                 color: Color(hex: "#ebdbb2"),
                 padding: Padding(left: 7.0, right: 7.0, top: 3.0, bottom: 7.0),
-                width: (min: 150, max: 250),
+                width: (min: 200, max: 300),
                 scroll_speed: 0.1,
                 lhs_dist: 35.0,
                 rhs_dist: 35.0,
