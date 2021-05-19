@@ -65,6 +65,9 @@ zsh
 zsh-lovers
 bc
 reflector
+xdg-utils
+desktop-file-utils
+shared-mime-info
 # power management and laptops
 acpi
 tlp
