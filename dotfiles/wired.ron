@@ -1,6 +1,6 @@
 (
     max_notifications: 0,
-    min_window_width: 1,
+    min_window_width: 2,
     min_window_height: 1,
 
     timeout: 10000,
