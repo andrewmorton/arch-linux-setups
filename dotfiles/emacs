@@ -1,0 +1,41 @@
+;;;;;;;;;;;;;;; Boilerplate START
+;;;;;
+;; Startup packages require START
+(require 'package)
+
+;; Startup packages require END
+;;;;;
+
+;;;;;
+;; Set use-package START
+
+(setq package-enable-at-startup nil)
+(package-initialize)
+
+(unless (package-installed-p 'use-package)
+  (package-refresh-contents)
+  (package-install 'use-package))
+(eval-when-compile
+  (require 'use-package)
+  )
+
+;; Set use-package END
+;;;;;
+
+;;;;;;;;;;;;;;; Boilerplate END
+
+;;;;;;;;;;;;;;; Use package calls
+
+;;;;;
+;; Evil START
+
+(use-package evil
+  :ensure t
+  :init
+  (setq evil-want-C-u-scroll t)
+  :config
+  (evil-mode 1)
+  )
+
+;; Evil END
+;;;;;

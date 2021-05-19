@@ -17,6 +17,7 @@ ln -sf $this_dir/bspwmrc $HOME/.config/bspwm/bspwmrc
 ln -sf $this_dir/sxhkdrc $HOME/.config/sxhkd/sxhkdrc
 ln -sf $this_dir/init.vim $HOME/.config/nvim/init.vim
 ln -sf $this_dir/wired.ron $HOME/.config/wired/wired.ron
+ln -sf $this_dir/emacs $HOME/.emacs
 
 # Make sym link to git pictures folder
-ln -sf -t $this_dir/bg/ $HOME/Pictures/bg
+ln -sf -t $this_dir/bg $HOME/Pictures/bg
