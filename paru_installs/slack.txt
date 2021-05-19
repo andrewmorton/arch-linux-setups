@@ -1,0 +1,2 @@
+# install Slack-Desktop
+slack-desktop
