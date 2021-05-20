@@ -22,6 +22,15 @@
          :font "JetBrains Mono:weight=extra-bold"
          :height 170)
 
+(column-number-mode)
+(global-display-line-numbers-mode t)
+
+;; Turn off line numbers for certain things
+(dolist (mode '(org-mode-hook
+		term-mode-hook
+		eshell-mode-hook))
+  (add-hook mode (lambda () (display-line-numbers-mode 0))))
+
 
 ;;;;;;;;;;;;;;; Visual Adjustments in Emacs END
 
@@ -136,7 +145,8 @@
 ;; doom modeline
 (use-package doom-modeline
   :ensure t
-  :init (doom-modeline-mode t))
+  :init (doom-modeline-mode t)
+  :custom (doom-modeline-height 15))
 
 (use-package all-the-icons
   :ensure t)
