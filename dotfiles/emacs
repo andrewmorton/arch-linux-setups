@@ -85,8 +85,7 @@
 
 (use-package evil
   :ensure t
-  :init
-  (setq evil-want-C-u-scroll t)
+  :init (setq evil-want-C-u-scroll t)
   :config
   (evil-mode t))
 
@@ -126,7 +125,7 @@
 	     ("TAB" . ivy-alt-done)
 	     ("C-j" . ivy-next-line)
 	     ("C-k" . ivy-previous-line))
-  :config
+  :init
   (ivy-mode t))
 ;;
 ;;;;;
@@ -151,6 +150,7 @@
 ;;
 ;;;;;
 
+;;;;;
 ;; doom modeline
 (use-package doom-modeline
   :ensure t
@@ -159,7 +159,17 @@
 
 (use-package all-the-icons
   :ensure t)
+;;
+;;;;;
 
+;;;;;
+;; which-key
+(use-package which-key
+  :init (which-key-mode)
+  :diminish (which-key-mode)
+  :config (setq which-key-idle-delay 0.3))
+;;
+;;;;;
 
 ;;  Add Themes
 (use-package "cyberpunk-theme")
