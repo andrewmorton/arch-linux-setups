@@ -138,6 +138,9 @@
   :ensure t
   :init (doom-modeline-mode t))
 
+(use-package all-the-icons
+  :ensure t)
+
 
 ;;  Add Themes
 (use-package "cyberpunk-theme")
