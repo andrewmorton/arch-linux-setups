@@ -59,6 +59,7 @@ picom
 sxhkd
 dmenu
 # system utilities
+tree
 htop
 nautilus
 zsh
