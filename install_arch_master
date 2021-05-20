@@ -13,6 +13,9 @@ echo "Generating locales"
 locale-gen
 echo "locale-gen was run"
 
+echo "Setting Caps to CTRL"
+localectl set-x11-keymap "" "" "" ctrl:nocaps
+
 # Set Java window drawing for Jetbrains IDE
 echo """
 # Fixing Java app window draw for JetBrains IDEs
