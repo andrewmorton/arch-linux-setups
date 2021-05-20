@@ -1,3 +1,5 @@
+#!/bin/bash
+
 ##### Restore dotfiles and config files
 # Restores the dotfiles that are kept in $REPO/dofiles to the newly created user folder
 ##### END Restore dotfiles
@@ -18,6 +20,7 @@ ln -sf $this_dir/sxhkdrc $HOME/.config/sxhkd/sxhkdrc
 ln -sf $this_dir/init.vim $HOME/.config/nvim/init.vim
 ln -sf $this_dir/wired.ron $HOME/.config/wired/wired.ron
 ln -sf $this_dir/emacs $HOME/.emacs
+ln -sf $this_dir/xbindkeysrc $HOME/.xbindkeysrc
 
 # Make sym link to git pictures folder
 ln -sf -t $this_dir/bg $HOME/Pictures/bg

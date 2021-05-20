@@ -71,3 +71,5 @@ shared-mime-info
 # power management and laptops
 acpi
 tlp
+# Keybindings
+xbindkeys
