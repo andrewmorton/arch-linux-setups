@@ -106,6 +106,16 @@
 ;;
 ;;;;; Terraform Support END
 
+;;;;;
+;; ELisp support START
+
+(use-package rainbow-delimiters
+  :ensure t
+  :diminish
+  :hook (prog-mode . rainbow-delimiters-mode))
+;;
+;;;;; ELisp Support END
+
 ;;;;; Setup Ivy
 ;;
 
