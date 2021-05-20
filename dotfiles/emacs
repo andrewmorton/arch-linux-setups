@@ -133,6 +133,11 @@
 ;;
 ;;;;;
 
+;; doom modeline
+(use-package doom-modeline
+  :ensure t
+  :init (doom-modeline-mode t))
+
 
 ;;  Add Themes
 (use-package "cyberpunk-theme")
