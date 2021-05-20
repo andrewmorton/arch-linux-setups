@@ -133,7 +133,6 @@
 
 ;;;;; counsel
 ;;
-
 (use-package counsel
   :diminish
   :bind (("M-x" . counsel-M-x)))
@@ -142,7 +141,6 @@
 
 ;;;;; magit
 ;;
-
 (use-package magit
   :bind ("C-g" . magit-status))
 
@@ -157,7 +155,7 @@
 (use-package doom-modeline
   :ensure t
   :init (doom-modeline-mode t)
-  :custom (doom-modeline-height 15))
+  :custom (doom-modeline-height 10))
 
 (use-package all-the-icons
   :ensure t)
