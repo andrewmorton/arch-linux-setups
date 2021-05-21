@@ -171,6 +171,13 @@
 ;;
 ;;;;;
 
+;;;;;
+;; Ivy-rich: Creates context around ivy completions
+(use-package ivy-rich
+  :init (ivy-rich-mode 1))
+;;
+;;;;;
+
 ;;  Add Themes
 (use-package "cyberpunk-theme")
 (use-package "cyberpunk-2019-theme")
