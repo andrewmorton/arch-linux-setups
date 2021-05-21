@@ -193,6 +193,6 @@
 (use-package "cherry-blossom-theme")
 (use-package "zerodark-theme")
 
-(defvar current-theme 'cherry-blossom)
+(defvar current-theme 'cyberpunk)
 
 (load-theme current-theme)
