@@ -178,6 +178,12 @@
 ;;
 ;;;;;
 
+;;;;;
+;; Command log buffer: shows the commands that are being run on key presses
+(use-package command-log-mode)
+;;
+;;;;;
+
 ;;  Add Themes
 (use-package "cyberpunk-theme")
 (use-package "cyberpunk-2019-theme")
