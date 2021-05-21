@@ -141,7 +141,9 @@
 ;;;;; magit
 ;;
 (use-package magit
-  :bind ("C-g" . magit-status))
+  :bind (("C-g" . magit-status)
+	 ("C-j" . magit-next-line)
+	 ("C-k" . magit-previous-line)))
 
 (use-package git-gutter
   :diminish
