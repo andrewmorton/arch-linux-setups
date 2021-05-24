@@ -120,7 +120,6 @@
 
 (use-package ivy
   :diminish
-  :ensure t
   :bind (:map ivy-minibuffer-map
 	     ("TAB" . ivy-alt-done)
 	     ("C-j" . ivy-next-line)
@@ -157,12 +156,10 @@
 ;;;;;
 ;; doom modeline
 (use-package doom-modeline
-  :ensure t
   :init (doom-modeline-mode t)
   :custom (doom-modeline-height 10))
 
-(use-package all-the-icons
-  :ensure t)
+(use-package all-the-icons)
 ;;
 ;;;;;
 
@@ -187,6 +184,21 @@
 (use-package command-log-mode)
 ;;
 ;;;;;
+
+;;;;;
+;; Command log buffer: shows the commands that are being run on key presses
+(use-package helpful
+  :custom
+  (counsel-describe-function-function #'helpful-callable)
+  (counse-describe-variable-function #'helpful-variable)
+  :bind
+  ([remap describe-function] . counsel-describe-function)
+  ([remap describe-command] . helpful-command)
+  ([remap describe-variable] . counsel-describe-variable)
+  ([remap describe-key] . helpful-key))
+;;
+;;;;;
+
 
 ;;  Add Themes
 (use-package "cyberpunk-theme")
