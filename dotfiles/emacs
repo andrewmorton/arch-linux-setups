@@ -168,7 +168,7 @@
 (use-package which-key
   :init (which-key-mode)
   :diminish (which-key-mode)
-  :config (setq which-key-idle-delay 0.3))
+  :config (setq which-key-idle-delay 0.5))
 ;;
 ;;;;;
 
@@ -206,7 +206,8 @@
 (use-package "soothe-theme")
 (use-package "cherry-blossom-theme")
 (use-package "zerodark-theme")
+(use-package doom-themes)
 
-(defvar current-theme 'cyberpunk)
+(defvar current-theme 'doom-outrun-electric)
 
 (load-theme current-theme)
