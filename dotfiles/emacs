@@ -133,9 +133,9 @@
 ;;
 (use-package counsel
   :diminish
-  :bind (("m-x" . counsel-m-x)
-	 ("c-x b" . counsel-ibuffer)
-	 ("c-x c-f" . counsel-find-file)))
+  :bind (("M-x" . counsel-m-x)
+	 ("C-x b" . counsel-ibuffer)
+	 ("C-x C-f" . counsel-find-file)))
 ;;
 ;;;;;
 
