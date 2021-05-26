@@ -53,6 +53,7 @@
 			 ("elpa" . "https://elpa.gnu.org/packages/")))
 
 (package-initialize)
+(package-refresh-contents) ; Get rid of the "file not found" error hopefully
 
 ;;;;;;;;;;;;;;; Boilerplate END
 
@@ -85,7 +86,8 @@
 
 (use-package evil
   :ensure t
-  :init (setq evil-want-C-u-scroll t)
+  :init
+  (setq evil-want-C-u-scroll t)
   :config
   (evil-mode t))
 
@@ -134,7 +136,7 @@
 (use-package counsel
   :diminish
   :bind (("M-x" . counsel-M-x)
-	 ("C-x b" . counsel-switch-buffer)
+	 ("C-M-j" . counsel-switch-buffer)
 	 ("C-x C-f" . counsel-find-file)))
 ;;
 ;;;;;
