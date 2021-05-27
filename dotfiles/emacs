@@ -88,8 +88,14 @@
   :ensure t
   :init
   (setq evil-want-C-u-scroll t)
+  (setq evil-want-integration t)
+  (setq evil-want-keybinding nil)
   :config
   (evil-mode t))
+
+(use-package evil-collection
+  :after evil
+  :config (evil-collection-init))
 
 ;; Evil END
 ;;;;;
