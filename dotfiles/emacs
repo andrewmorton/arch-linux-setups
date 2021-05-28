@@ -235,6 +235,10 @@
    "s" '(:ignore t :which-keys "scaling")
    "t" '(:ignore t :which-keys "toggling")))
 
+;;;;;
+;; Use Org Mode
+(use-package org)
+
 
 
 ;;  Add Themes
