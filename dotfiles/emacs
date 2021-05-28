@@ -102,10 +102,8 @@
 
 ;;;;;
 ;; Terraform support START
-(use-package terraform-mode
-  :ensure t)
-(use-package terraform-doc
-  :ensure t)
+(use-package terraform-mode)
+(use-package terraform-doc)
 
 (require 'terraform-mode)
 (require 'terraform-doc)
@@ -122,6 +120,12 @@
   :hook (prog-mode . rainbow-delimiters-mode))
 ;;
 ;;;;; ELisp Support END
+
+;;;;; 
+;; Markdown support
+(use-package markdown-mode)
+;;
+;;;;;
 
 ;;;;; Setup Ivy
 ;;
@@ -217,6 +221,20 @@
   ("<f1> l" . counsel-find-library))
 ;;
 ;;;;;
+
+;;;;;
+;; General for keybindings
+
+(use-package general
+  :config
+  (general-create-definer guts/action-keys
+			  :keymaps '(normal insert visual emacs)
+			  :prefix "SPC"
+			  :global-prefix "C-SPC")
+  (guts/action-keys
+   "s" '(:ignore t :which-keys "scaling")
+   "t" '(:ignore t :which-keys "toggling")))
+
 
 
 ;;  Add Themes
