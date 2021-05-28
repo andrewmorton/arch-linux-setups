@@ -16,4 +16,9 @@
 - RSS feeds
   * AWS
   * Devops things
-  
+ 
+ 
+# Additional hotkeys
+- Kill current buffer
+- list all buffers
+- use ivy for vert split buffers
