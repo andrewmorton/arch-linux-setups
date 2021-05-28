@@ -233,7 +233,8 @@
 			  :global-prefix "C-SPC")
   (guts/action-keys
    "s" '(:ignore t :which-keys "scaling")
-   "t" '(:ignore t :which-keys "toggling")))
+   "t" '(:ignore t :which-keys "toggling")
+   "o" '(:ignore t :which-keys "org-mode"))
 
 ;;;;;
 ;; Use Org Mode
