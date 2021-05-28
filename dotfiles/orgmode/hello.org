@@ -1,1 +1,16 @@
-#- Hello!
+* First Heading
+  Testing some stuff
+
+* Another Heading
+
+* Second Heading
+* Inserted heading RIGHT AFTER
+  
+  Here is some content
+
+** Sub-heading
+   
+   Adding *some* more [[https://orgmode.org][basic content]]
+
+** And another sub-heading 
+
