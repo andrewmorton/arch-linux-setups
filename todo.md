@@ -22,3 +22,7 @@
 - Kill current buffer
 - list all buffers
 - use ivy for vert split buffers
+
+# Org mode stuff
+- Insert Org mode link
+- insert source code block (template?)
