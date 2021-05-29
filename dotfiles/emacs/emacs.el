@@ -133,9 +133,7 @@
 (use-package ivy
   :diminish
   :bind (:map ivy-minibuffer-map
-	     ("TAB" . ivy-alt-done)
-	     ("C-j" . ivy-next-line)
-	     ("C-k" . ivy-previous-line))
+	     ("TAB" . ivy-alt-done))
   :init
   (ivy-mode t))
 ;;
@@ -234,12 +232,34 @@
   (guts/action-keys
    "s" '(:ignore t :which-keys "scaling")
    "t" '(:ignore t :which-keys "toggling")
-   "o" '(:ignore t :which-keys "org-mode"))
+   "o" '(:ignore t :which-keys "org-mode")))
 
 ;;;;;
 ;; Use Org Mode
-(use-package org)
 
+;; setup org mode functions
+(defun guts/org-mode-setup ()
+  (variable-pitch-mode 0)
+  (auto-fill-mode 0)
+  (visual-line-mode 1)
+  (setq evil-auto-indent nil
+	org-startup-indented 1))
+
+(defun guts/org-mode-visual-fill ()
+  (setq visual-fill-column-width 100
+	visual-fill-column-center-text 1)
+  (visual-fill-column-mode 1))
+
+(use-package org
+  :hook (org-mode . guts/org-mode-setup))
+
+(use-package org-bullets
+  :after org)
+
+(use-package visual-fill-column
+  :hook (org-mode . guts/org-mode-visual-fill))
+;;
+;;;;;
 
 
 ;;  Add Themes

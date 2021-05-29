@@ -1,0 +1,41 @@
+* TODO Decide the sections under Emacs and System config to start
+
+* Emacs
+  
+
+
+
+Emacs
+ Visual
+Init.el provides modules
+Font Setting
+Themes
+UI
+Searching
+Usability
+* Package Management
+** Repos
+** Use-Package
+* Key bindings
+* Programming Languages
+** Generic/all
+** Terraform
+** Python
+** Go
+** Rust
+** Shell
+** Powershell
+** Julia
+** Kubernetes
+** Docker
+** Node
+* Fuzzy Search
+* Git
+ Documentation
+System
+ Filesystem
+
+* TODO Move the emacs lisp from current init to master.org
+* TODO Use Babel to export a custom init.el to ~/.config/emacs/init.el
+* TODO Make Babel OVERWRITE an existing init.el file when it exports
+   
