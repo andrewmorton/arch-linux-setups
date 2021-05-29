@@ -1,3 +1,4 @@
+#+title Guts Emacs Master Configuration
 * DONE Decide the sections under Emacs and System config to start
 * TODO Move the emacs lisp from current init to master.org
 * TODO Use Babel to export a custom init.el to ~/.config/emacs/init.el
@@ -121,7 +122,66 @@ Install Evil collection, which integrates Evil mode with a bunch of other things
 #+end_src
 
 *** Searching
-*** Keybindings
+*** Org Mode
+**** Org mode
+
+Setup Org mode with some defaults and custom functions
+[[https://orgmode.org/]]
+
+#+begin_src emacs-lisp
+(defun guts/org-mode-setup ()
+  (variable-pitch-mode 0)
+  (auto-fill-mode 0)
+  (visual-line-mode 1)
+  (setq evil-auto-indent nil
+        org-startup-indented 1))
+
+(defun guts/org-mode-visual-fill ()
+  (setq visual-fill-column-width 100
+        visual-fill-column-center-text 1)
+  (visual-fill-column-mode 1))
+
+(use-package org
+  :hook (org-mode . guts/org-mode-setup))
+
+(use-package org-bullets
+  :after (org)
+  :config (org-bullets-mode 1))
+
+(use-package visual-fill-column
+  :hook (org-mode . guts/org-mode-visual-fill))
+
+(require 'org-tempo)
+
+(add-to-list 'org-structure-template-alist '("sh" . "src shell"))
+(add-to-list 'org-structure-template-alist '("py" . "src python"))
+(add-to-list 'org-structure-template-alist '("el" . "src emacs-lisp"))
+	
+#+end_src
+
+
+**** Org Babel
+
+This still needs some work
+[[https://orgmode.org/worg/org-contrib/babel/]]
+[[https://orgmode.org/worg/org-contrib/babel/languages/index.html]]
+
+
+#+begin_src emacs-lisp
+(setq org-src-preserve-indentation nil
+      org-edit-src-content-indentation
+      org-src-tab-acts-natively t
+      org-confirm-babel-evaluate nil)
+
+(org-babel-do-load-languages
+ 'org-babel-load-languages
+ '((emacs-lisp . t)
+   (python . t)
+   (shell . t)))
+
+#+end_src
+
+*** keybindings
 
 Make <escape> always quit
 #+begin_src emacs-lisp
