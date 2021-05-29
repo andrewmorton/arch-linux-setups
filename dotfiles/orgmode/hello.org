@@ -5,12 +5,17 @@
 
 * Second Heading
 * Inserted heading RIGHT AFTER
-  
-  Here is some content
+
+  Here is some /content/
 
 ** Sub-heading
    
+   
    Adding *some* more [[https://orgmode.org][basic content]]
+
+   - Here's another one
+   - How about a list?
+   - 
 
 ** And another sub-heading 
 
