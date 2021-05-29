@@ -254,7 +254,8 @@
   :hook (org-mode . guts/org-mode-setup))
 
 (use-package org-bullets
-  :after org)
+  :after (org)
+  :config (org-bullets-mode 1))
 
 (use-package visual-fill-column
   :hook (org-mode . guts/org-mode-visual-fill))
