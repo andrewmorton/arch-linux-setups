@@ -8,18 +8,18 @@
 *** Needs Work
 *** How do I make provides work?
 ** Package Management
-*** General
+*** general
 
 #+begin_src emacs-lisp
   (setq package-enable-at-startup nil)
 
-  ;; Set a custom el file to preserve my config
+  ;; set a custom el file to preserve my config
   (setq custom-file (expand-file-name "sys_custom.el" user-emacs-directory))
   (when (file-exists-p custom-file)
     (load custom-file))
 #+end_src
 
-Turn on Package manager And configure Repos to monitor
+turn on package manager and configure repos to monitor
 
 #+begin_src emacs-lisp
   (require 'package)
@@ -33,9 +33,9 @@ Turn on Package manager And configure Repos to monitor
 
 #+end_src
 
-*** Use-Package config
+*** use-package config
 
-Verify that Use-package is installed on startup
+verify that use-package is installed on startup
 
 #+begin_src emacs-lisp
 
@@ -44,12 +44,12 @@ Verify that Use-package is installed on startup
     (package-install 'use-package))
   (require 'use-package)
 
-  ;; Sets use package to ensure packages are kept up to date always
+  ;; sets use package to ensure packages are kept up to date always
   (setq use-package-always-ensure 't)
 
 #+end_src
 ** Visual
-*** General
+*** general
 
 #+begin_src emacs-lisp
   ;; Turn off startup message and turn off audible bell
@@ -58,12 +58,12 @@ Verify that Use-package is installed on startup
 #+end_src
 
 
-*** Font
+*** font
 
-Choices here can be JetBrains Mono or any other monospaced font that is installed
+choices here can be jetbrains mono or any other monospaced font that is installed
 #+begin_src emacs-lisp
   (set-face-attribute 'default nil
-                      :font "JetBrains Mono:weight=extra-bold"
+                      :font "jetbrains mono:weight=extra-bold"
                       :height 170)
 #+end_src
 
@@ -84,7 +84,23 @@ Install and setup Themes
 (load-theme current-theme t)
 
 #+end_src
-*** UI
+
+Set Modeline using doom modeline
+[[https://github.com/seagle0128/doom-modeline]]
+
+#+begin_src emacs-lisp
+;; doom modeline
+(use-package doom-modeline
+  :init (doom-modeline-mode t)
+  :custom (doom-modeline-height 10))
+
+(use-package all-the-icons)
+
+;; Still need to run all-the-icons-install-fonts
+
+#+end_src
+
+*** ui
 
 #+begin_src emacs-lisp
 
@@ -108,7 +124,7 @@ Install and setup Themes
 #+end_src
 
 ** Usability
-*** Evil Mode
+*** evil mode
 
 Install Evil Mode
 [[https://github.com/emacs-evil/evil]]
@@ -137,11 +153,48 @@ Install Evil collection, which integrates Evil mode with a bunch of other things
 
 #+end_src
 
-*** Searching
-*** Org Mode
-**** Org mode
+*** searching
+all packages here are documented at swiper repo
+TODO: Learn how Ivy, counsel, and swiper work
+[[https://github.com/abo-abo/swiper]]
 
-Setup Org mode with some defaults and custom functions
+counsel/ivy setup
+#+begin_src emacs-lisp
+
+;;;;; Setup Ivy
+;;
+
+(use-package ivy
+  :diminish
+  :bind (:map ivy-minibuffer-map
+	     ("TAB" . ivy-alt-done))
+  :init
+  (ivy-mode t))
+
+;;;;; counsel
+;;
+(use-package counsel
+  :diminish
+  :bind (("M-x" . counsel-M-x)
+	 ("C-M-j" . counsel-switch-buffer)
+	 ("C-x C-f" . counsel-find-file)))
+
+#+end_src
+
+swiper setup
+#+begin_src emacs-lisp
+
+;;;;; swiper
+;;
+(use-package swiper
+  :bind ("C-s" . swiper))
+
+#+end_src
+
+*** org mode
+**** org mode
+
+Setup org mode with some defaults and custom functions
 [[https://orgmode.org/]]
 
 #+begin_src emacs-lisp
@@ -166,7 +219,14 @@ Setup Org mode with some defaults and custom functions
 
 (use-package visual-fill-column
   :hook (org-mode . guts/org-mode-visual-fill))
+#+end_src
 
+Setup org tempo for templating
+TODO: Figure out how to make some templates for terraform in emacs
+
+org tempo docs here:
+[[https://orgmode.org/manual/Structure-Templates.html]]
+#+begin_src emacs-lisp
 (require 'org-tempo)
 
 (add-to-list 'org-structure-template-alist '("sh" . "src shell"))
@@ -176,9 +236,9 @@ Setup Org mode with some defaults and custom functions
 #+end_src
 
 
-**** Org Babel
+**** org babel
 
-This still needs some work
+TODO: Figure out babel more
 [[https://orgmode.org/worg/org-contrib/babel/]]
 [[https://orgmode.org/worg/org-contrib/babel/languages/index.html]]
 
@@ -206,7 +266,10 @@ Make <escape> always quit
 
 #+end_src
 
+TODO: Study General and figure it out
 Setup General for custom key bind
+[[https://github.com/noctuid/general.el]]
+
 #+begin_src emacs-lisp
 
 (use-package general
@@ -221,10 +284,31 @@ Setup General for custom key bind
    "o" '(:ignore t :which-keys "org-mode")))
 
 #+end_src
-*** Git
-*** Documentation
+*** git
+
+TODO: Figure out how to use magit
+Install and setup magit
+[[https://magit.vc/]]
+
+#+begin_src emacs-lisp
+;;;;; magit
+;;
+(use-package magit
+  :bind (("C-g" . magit-status)))
+
+(use-package git-gutter
+  :diminish
+  :config
+  (global-git-gutter-mode 't))
+
+#+end_src
+
+
+*** documentation
 
 Install and configure which-keys
+[[https://github.com/justbur/emacs-which-key]]
+
 #+begin_src emacs-lisp
 
 ;; which-key
@@ -257,15 +341,124 @@ Install and configure helpful
   ("<f1> l" . counsel-find-library))
 
 #+end_src
-*** Programming Languages
+
+command log mode
+[[https://github.com/lewang/command-log-mode]]
+
+#+begin_src emacs-lisp
+
+;; Command log buffer: shows the commands that are being run on key presses
+(use-package command-log-mode)
+;;
+
+#+end_src
+
+*** programming languages
 **** Generic/all
-**** Terraform
+
+Rainbow delimiters to improve usability for all languages
+
+#+begin_src emacs-lisp
+;; ELisp support START
+
+(use-package rainbow-delimiters
+  :ensure t
+  :diminish
+  :hook (prog-mode . rainbow-delimiters-mode))
+;;
+
+#+end_src
+
+YaSnippet cuz it's the coolest
+[[https://github.com/joaotavora/yasnippet/blob/master/README.mdown]]
+
+#+begin_src emacs-lisp
+(use-package yasnippet)
+#+end_src
+
+**** Terraform/HCL
+
+Install HCL for packer, etc.
+
+#+begin_src emacs-lisp
+(use-package hcl-mode)
+#+end_src
+
+#+begin_src emacs-lisp
+;; Terraform support START
+(use-package terraform-mode)
+(use-package terraform-doc)
+
+(require 'terraform-doc)
+#+end_src
+
 **** Shell
+
+Install bash completion for easier time in the shell
+[[https://github.com/szermatt/emacs-bash-completion]]
+
+
+#+begin_src emacs-lisp
+(use-package bash-completion)
+#+end_src
+
 **** Python
+
+
+
 **** Rust
+
+Rust Mode for editing
+
+#+begin_src emacs-lisp
+(use-package rust-mode)
+#+end_src
+
 **** Powershell
+
+#+begin_src emacs-lisp
+(use-package powershell)
+#+end_src
+
 **** Kubernetes
+
+TODO: Add some things here or remove this section
+
 **** Docker
+
+Add docker container support and TRAMP connection
+
+#+begin_src emacs-lisp
+(use-package docker)
+(use-package dockerfile-mode)
+(use-package docker-tramp)
+#+end_src
+
 **** Node
+
+TODO: Figure out if I need Node/JS stuff. If so, check out indium.
+[[https://indium.readthedocs.io/en/latest/installation.html]]
+
 **** Go
+
+#+begin_src emacs-lisp
+(use-package go-mode)
+#+end_src
+
+**** Markdown
+
+#+begin_src emacs-lisp
+;; Markdown support
+(use-package markdown-mode)
+;;
+#+end_src
+
+**** Scala
+
+#+begin_src emacs-lisp
+(use-package scala-mode
+  :interpreter ("scala" . scala-mode))
+#+end_src
+
+
 * System
