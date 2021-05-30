@@ -68,6 +68,22 @@ Choices here can be JetBrains Mono or any other monospaced font that is installe
 #+end_src
 
 *** Themes
+
+Install and setup Themes
+#+begin_src emacs-lisp
+
+(use-package "cyberpunk-theme")
+(use-package "cyberpunk-2019-theme")
+(use-package "soothe-theme")
+(use-package "cherry-blossom-theme")
+(use-package "zerodark-theme")
+(use-package doom-themes)
+
+(defvar current-theme 'doom-horizon)
+
+(load-theme current-theme t)
+
+#+end_src
 *** UI
 
 #+begin_src emacs-lisp
@@ -189,8 +205,58 @@ Make <escape> always quit
   (global-set-key (kbd "<escape>") 'keyboard-escape-quit)
 
 #+end_src
+
+Setup General for custom key bind
+#+begin_src emacs-lisp
+
+(use-package general
+  :config
+  (general-create-definer guts/action-keys
+			  :keymaps '(normal insert visual emacs)
+			  :prefix "SPC"
+			  :global-prefix "C-SPC")
+  (guts/action-keys
+   "s" '(:ignore t :which-keys "scaling")
+   "t" '(:ignore t :which-keys "toggling")
+   "o" '(:ignore t :which-keys "org-mode")))
+
+#+end_src
 *** Git
 *** Documentation
+
+Install and configure which-keys
+#+begin_src emacs-lisp
+
+;; which-key
+(use-package which-key
+  :init (which-key-mode)
+  :diminish (which-key-mode)
+  :config (setq which-key-idle-delay 0.5))
+
+#+end_src
+
+Install and configure helpful
+[[https://github.com/Wilfred/helpful]]
+
+#+begin_src emacs-lisp
+;; install helpful
+(use-package helpful
+  :custom
+  (counsel-describe-function-function #'helpful-callable)
+  (counsel-describe-variable-function #'helpful-variable)
+  (counsel-describe-symbol-function  #'helpful-symbol)
+  :bind
+  ([remap describe-function] . counsel-describe-function)
+  ([remap describe-command] . helpful-command)
+  ([remap describe-variable] . counsel-describe-variable)
+  ([remap describe-symbol] . counsel-describe-symbol)
+  ([remap describe-key] . helpful-key)
+  ("<f1> f" . counsel-describe-function)
+  ("<f1> v" . counsel-describe-variable)
+  ("<f1> o" . counsel-describe-symbol)
+  ("<f1> l" . counsel-find-library))
+
+#+end_src
 *** Programming Languages
 **** Generic/all
 **** Terraform
