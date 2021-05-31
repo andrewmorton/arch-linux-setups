@@ -19,8 +19,8 @@ ln -sf $this_dir/bspwmrc $HOME/.config/bspwm/bspwmrc
 ln -sf $this_dir/sxhkdrc $HOME/.config/sxhkd/sxhkdrc
 ln -sf $this_dir/init.vim $HOME/.config/nvim/init.vim
 ln -sf $this_dir/wired.ron $HOME/.config/wired/wired.ron
-ln -sf $this_dir/emacs/emacs.el $HOME/.emacs.el
+cp $this_dir/emacs/emacs.el $HOME/.emacs.el # Just copy emacs config because it will be replaced
 ln -sf $this_dir/xbindkeysrc $HOME/.xbindkeysrc
 
 # Make sym link to git pictures folder
-ln -sf -t $this_dir/bg $HOME/Pictures/bg
+ln -sf $this_dir/bg/ $HOME/Pictures/bg

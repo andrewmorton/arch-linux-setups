@@ -1,6 +1,6 @@
 #!/bin/bash
 
-PACKAGE_LIST="$1"
+PACKAGE_LIST="$@"
 
 if [ -z $PACKAGE_LIST ]
 then
@@ -10,4 +10,4 @@ then
 	exit 1
 fi
 
-paru -S $( cat $PACKAGE_LIST | sed "s/#.*//g" )
+paru -S $( cat "$PACKAGE_LIST" | sed "s/#.*//g" )
