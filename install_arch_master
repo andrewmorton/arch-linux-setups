@@ -61,6 +61,11 @@ echo "Running install_paclist on paclist.txt"
 ./pacman_install/install_paclist ./pacman_install/paclist.txt &&
 	echo "Successful"
 
+# install paclist_personal.txt
+echo "Running install_paclist on paclist_personal.txt"
+./pacman_install/install_paclist ./pacman_install/paclist_personal.txt &&
+	echo "Successful"
+
 # Setup autorandr "no_connections" as default profile
 echo "Setting auotrandr no_connections profile"
 autorandr -s no_connections

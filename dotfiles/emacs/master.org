@@ -1,7 +1,8 @@
 #+title Guts Emacs Master Configuration
+#+PROPERTY: header-args:emacs-lisp :tangle ~/.emacs.d/init.el :mkdirp yes
 * DONE Decide the sections under Emacs and System config to start
-* TODO Move the emacs lisp from current init to master.org
-* TODO Use Babel to export a custom init.el to ~/.config/emacs/init.el
+* DONE Move the emacs lisp from current init to master.org
+* DONE Use Babel to export a custom init.el to ~/.config/emacs/init.el
 * TODO Make Babel OVERWRITE an existing init.el file when it exports
 * Emacs
 ** Init.el Provides
@@ -245,7 +246,7 @@ TODO: Figure out babel more
 
 #+begin_src emacs-lisp
 (setq org-src-preserve-indentation nil
-      org-edit-src-content-indentation
+      org-edit-src-content-indentation 0
       org-src-tab-acts-natively t
       org-confirm-babel-evaluate nil)
 
@@ -255,6 +256,19 @@ TODO: Figure out babel more
    (python . t)
    (shell . t)))
 
+#+end_src
+
+#+begin_src emacs-lisp
+
+;; automatically tangle this file to a config for emacs
+(defun guts/org-babel-tangle-config ()
+  (when (string-equal (buffer-file-name)
+		      (expand-file-name "/home/tas/repos/arch-linux-setups/dotfiles/emacs/master.org"))
+
+    (let ((org-confirm-babel-evaluate nil)
+	  (org-babel-tangle)))))
+
+(add-hook 'org-mode-hook (lambda () (add-hook 'after-save-hook #'guts/org-babel-tangle-config)))
 #+end_src
 
 *** keybindings
@@ -462,3 +476,5 @@ TODO: Figure out if I need Node/JS stuff. If so, check out indium.
 
 
 * System
+
+TODO: Set up configuration files for my system
