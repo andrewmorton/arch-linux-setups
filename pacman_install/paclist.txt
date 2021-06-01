@@ -8,6 +8,8 @@ xsel
 go
 nodejs-lts-fermium
 npm
+helm
+docker
 # mit-scheme
 # workflow tools
 mutt
