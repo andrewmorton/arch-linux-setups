@@ -20,7 +20,7 @@ auto_response=$( autorandr --current )
 if [[ $auto_response == "work_monitors" ]]
 then
 	bspc monitor eDP1 -d  1 2 3 4
-	bspc monitor HDMI1 -d 5 6 7 8 9 10
+	bspc monitor DP2 -d 5 6 7 8 9 10
 elif [[ $auto_response == "home_monitors" ]]
 then
 	bspc monitor HDMI-0 -d  2 3 5 9 10
