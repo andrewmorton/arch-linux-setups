@@ -1,9 +1,5 @@
 #+title Guts Emacs Master Configuration
 #+PROPERTY: header-args:emacs-lisp :tangle ~/.emacs.d/init.el :mkdirp yes
-* DONE Decide the sections under Emacs and System config to start
-* DONE Move the emacs lisp from current init to master.org
-* DONE Use Babel to export a custom init.el to ~/.config/emacs/init.el
-* TODO Make Babel OVERWRITE an existing init.el file when it exports
 * Emacs
 ** Init.el Provides
 *** Needs Work
@@ -30,7 +26,6 @@ turn on package manager and configure repos to monitor
                            ("elpa" . "https://elpa.gnu.org/packages/")))
 
   (package-initialize)
-  (package-refresh-contents)
 
 #+end_src
 
@@ -80,7 +75,7 @@ Install and setup Themes
 (use-package "zerodark-theme")
 (use-package doom-themes)
 
-(defvar current-theme 'doom-horizon)
+(defvar current-theme 'doom-badger)
 
 (load-theme current-theme t)
 
@@ -125,6 +120,21 @@ Set Modeline using doom modeline
 #+end_src
 
 ** Usability
+*** General
+
+Use no-littering to prevent backup ~ files from being created in git repos
+[[https://github.com/emacscollective/no-littering]]
+
+#+begin_src emacs-lisp
+
+(use-package no-littering
+  :init (setq auto-save-file-name-transforms
+      `((".*" ,(no-littering-expand-var-file-name "auto-save/") t))))
+
+
+
+#+end_src
+
 *** evil mode
 
 Install Evil Mode
@@ -153,6 +163,7 @@ Install Evil collection, which integrates Evil mode with a bunch of other things
     :config (evil-collection-init))
 
 #+end_src
+
 
 *** searching
 all packages here are documented at swiper repo
@@ -192,51 +203,8 @@ swiper setup
 
 #+end_src
 
+
 *** org mode
-**** org mode
-
-Setup org mode with some defaults and custom functions
-[[https://orgmode.org/]]
-
-#+begin_src emacs-lisp
-(defun guts/org-mode-setup ()
-  (variable-pitch-mode 0)
-  (auto-fill-mode 0)
-  (visual-line-mode 1)
-  (setq evil-auto-indent nil
-        org-startup-indented 1))
-
-(defun guts/org-mode-visual-fill ()
-  (setq visual-fill-column-width 100
-        visual-fill-column-center-text 1)
-  (visual-fill-column-mode 1))
-
-(use-package org
-  :hook (org-mode . guts/org-mode-setup))
-
-(use-package org-bullets
-  :after (org)
-  :config (org-bullets-mode 1))
-
-(use-package visual-fill-column
-  :hook (org-mode . guts/org-mode-visual-fill))
-#+end_src
-
-Setup org tempo for templating
-TODO: Figure out how to make some templates for terraform in emacs
-
-org tempo docs here:
-[[https://orgmode.org/manual/Structure-Templates.html]]
-#+begin_src emacs-lisp
-(require 'org-tempo)
-
-(add-to-list 'org-structure-template-alist '("sh" . "src shell"))
-(add-to-list 'org-structure-template-alist '("py" . "src python"))
-(add-to-list 'org-structure-template-alist '("el" . "src emacs-lisp"))
-	
-#+end_src
-
-
 **** org babel
 
 TODO: Figure out babel more
@@ -268,8 +236,53 @@ TODO: Figure out babel more
     (let ((org-confirm-babel-evaluate nil)
 	  (org-babel-tangle)))))
 
-(add-hook 'org-mode-hook (lambda () (add-hook 'after-save-hook #'guts/org-babel-tangle-config)))
+(add-hook 'org-mode-hook (lambda () (add-hook 'after-save-hook 'guts/org-babel-tangle-config nil 'make-it-local)))
+ #+end_src
+
+
+**** org mode
+
+Setup org mode with some defaults and custom functions
+[[https://orgmode.org/]]
+
+#+begin_src emacs-lisp
+(defun guts/org-mode-setup ()
+  (variable-pitch-mode 0)
+  (auto-fill-mode 0)
+  (visual-line-mode 1)
+  (org-bullets-mode 1)
+  (setq evil-auto-indent nil
+        org-startup-indented 1))
+
+(defun guts/org-mode-visual-fill ()
+  (setq visual-fill-column-width 100
+        visual-fill-column-center-text 1)
+  (visual-fill-column-mode 1))
+
+(use-package org
+  :hook (org-mode . guts/org-mode-setup))
+
+(use-package org-bullets
+  :after (org))
+
+(use-package visual-fill-column
+  :hook (org-mode . guts/org-mode-visual-fill))
 #+end_src
+
+Setup org tempo for templating
+TODO: Figure out how to make some templates for terraform in emacs
+
+org tempo docs here:
+[[https://orgmode.org/manual/Structure-Templates.html]]
+#+begin_src emacs-lisp
+(require 'org-tempo)
+
+(add-to-list 'org-structure-template-alist '("sh" . "src shell"))
+(add-to-list 'org-structure-template-alist '("py" . "src python"))
+(add-to-list 'org-structure-template-alist '("el" . "src emacs-lisp"))
+	
+#+end_src
+
 
 *** keybindings
 
@@ -298,6 +311,7 @@ Setup General for custom key bind
    "o" '(:ignore t :which-keys "org-mode")))
 
 #+end_src
+
 *** git
 
 TODO: Figure out how to use magit
@@ -367,6 +381,7 @@ command log mode
 
 #+end_src
 
+
 *** programming languages
 **** Generic/all
 
@@ -388,6 +403,10 @@ YaSnippet cuz it's the coolest
 
 #+begin_src emacs-lisp
 (use-package yasnippet)
+#+end_src
+
+#+begin_src emacs-lisp
+(use-package yaml-mode)
 #+end_src
 
 **** Terraform/HCL
@@ -413,7 +432,8 @@ Install bash completion for easier time in the shell
 
 
 #+begin_src emacs-lisp
-(use-package bash-completion)
+(use-package bash-completion
+  :hook (shell-mode-hook . bash-completion))
 #+end_src
 
 **** Python
@@ -436,7 +456,13 @@ Rust Mode for editing
 
 **** Kubernetes
 
-TODO: Add some things here or remove this section
+Use K8S mode for helm packages and such
+https://github.com/TxGVNN/emacs-k8s-mode
+
+     #+begin_src emacs-lisp
+     (use-package k8s-mode
+       :hook (k8s-mode . yas-minor-mode))
+     #+end_src
 
 **** Docker
 
@@ -469,12 +495,13 @@ TODO: Figure out if I need Node/JS stuff. If so, check out indium.
 
 **** Scala
 
+
 #+begin_src emacs-lisp
 (use-package scala-mode
   :interpreter ("scala" . scala-mode))
 #+end_src
 
+     
+* system
 
-* System
-
-TODO: Set up configuration files for my system
+todo: Set up configuration files for my system
