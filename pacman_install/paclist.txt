@@ -8,8 +8,23 @@ xsel
 go
 nodejs-lts-fermium
 npm
+# Kubernetes stuff
 helm
+minikube
+kubelet
+kubectl
 docker
+docker-machine
+kubernetes-control-plane
+kubernetes-node
+kubeadm
+containerd
+qemu
+libvirt
+ebtables
+dnsmasq
+virtualbox
+dmidecode
 # mit-scheme
 # workflow tools
 mutt
@@ -24,7 +39,7 @@ vlc
 man-db
 man-pages
 texinfo
-xsecurelock
+slock
 qt5-base
 qt5-doc
 python-dbus
