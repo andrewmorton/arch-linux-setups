@@ -26,7 +26,6 @@ turn on package manager and configure repos to monitor
                            ("elpa" . "https://elpa.gnu.org/packages/")))
 
   (package-initialize)
-
 #+end_src
 
 *** use-package config
@@ -48,9 +47,10 @@ verify that use-package is installed on startup
 *** general
 
 #+begin_src emacs-lisp
-  ;; Turn off startup message and turn off audible bell
-  (setq inhibit-startup-message t)
-  (setq visible-bell t)
+;; Turn off startup message and turn off audible bell
+(setq inhibit-startup-message t
+      visible-bell t
+      tab-bar-new-tab-choice "**scratch**")
 #+end_src
 
 
@@ -228,16 +228,14 @@ TODO: Figure out babel more
 
 #+begin_src emacs-lisp
 
-;; automatically tangle this file to a config for emacs
+;; automatically tangle this file to a config for emacs, appends to save hook
 (defun guts/org-babel-tangle-config ()
-  (when (string-equal (buffer-file-name)
-		      (expand-file-name "/home/tas/repos/arch-linux-setups/dotfiles/emacs/master.org"))
-
-    (let ((org-confirm-babel-evaluate nil)
-	  (org-babel-tangle)))))
+  (when (string= (buffer-file-name)
+		      (expand-file-name "~/arch-linux-setups/dotfiles/emacs/master.org"))
+    (org-babel-tangle)))
 
 (add-hook 'org-mode-hook (lambda () (add-hook 'after-save-hook 'guts/org-babel-tangle-config nil 'make-it-local)))
- #+end_src
+ #+end_srC
 
 
 **** org mode
