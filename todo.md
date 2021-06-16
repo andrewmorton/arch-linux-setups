@@ -26,3 +26,6 @@
 # Org mode stuff
 - Insert Org mode link
 - insert source code block (template?)
+
+# Semver
+- Also would be nice to provide releases
