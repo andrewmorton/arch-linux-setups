@@ -81,4 +81,5 @@ groupadd sudo
 read -p "Enter the name of your RAD user: " USERNAME
 useradd -m -G sudo,users $USERNAME
 
+
 # reboot
