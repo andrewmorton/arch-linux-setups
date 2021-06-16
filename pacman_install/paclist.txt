@@ -8,6 +8,7 @@ xsel
 go
 nodejs-lts-fermium
 npm
+postgresql
 # Kubernetes stuff
 helm
 minikube
@@ -91,6 +92,7 @@ texlive-most
 biber
 # fonts
 ttf-font
+ttf-liberation
 ttf-cascadia-code
 ttf-fira-code
 ttf-fira-mono

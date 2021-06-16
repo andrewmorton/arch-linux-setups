@@ -50,7 +50,7 @@ verify that use-package is installed on startup
 ;; Turn off startup message and turn off audible bell
 (setq inhibit-startup-message t
       visible-bell t
-      tab-bar-new-tab-choice "**scratch**")
+      tab-bar-new-tab-choice "/tmp/scratch.md")
 #+end_src
 
 
@@ -244,17 +244,24 @@ Setup org mode with some defaults and custom functions
 [[https://orgmode.org/]]
 
 #+begin_src emacs-lisp
+(global-set-key "\C-ca" 'org-agenda)
+
+;; Define Org agenda files directory
+
 (defun guts/org-mode-setup ()
+  ;; Create a list of agenda files looking at the provided agenda files argument
+  
   (variable-pitch-mode 0)
   (auto-fill-mode 0)
   (visual-line-mode 1)
   (org-bullets-mode 1)
   (setq evil-auto-indent nil
-        org-startup-indented 1))
+	org-startup-indented 1
+	org-agenda-files "~/zettelkasten/daily-todo/agendas"))
 
 (defun guts/org-mode-visual-fill ()
   (setq visual-fill-column-width 100
-        visual-fill-column-center-text 1)
+	visual-fill-column-center-text 1)
   (visual-fill-column-mode 1))
 
 (use-package org
