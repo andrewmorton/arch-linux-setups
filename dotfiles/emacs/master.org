@@ -255,9 +255,9 @@ Setup org mode with some defaults and custom functions
   (auto-fill-mode 0)
   (visual-line-mode 1)
   (org-bullets-mode 1)
+  (org-agenda-file (expand-file-name "~/zettelkasten/daily-todo/agendas/*"))
   (setq evil-auto-indent nil
-	org-startup-indented 1
-	org-agenda-files "~/zettelkasten/daily-todo/agendas"))
+	org-startup-indented 1))
 
 (defun guts/org-mode-visual-fill ()
   (setq visual-fill-column-width 100
