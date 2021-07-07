@@ -8,6 +8,7 @@ evince
 # Usability
 ranger
 emacs
+cairo-dock
 ## Ranger updates
 atool
 ffmpegthumbnailer

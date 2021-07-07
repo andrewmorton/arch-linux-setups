@@ -1,0 +1,2 @@
+# Install all nerdfonts stuffs
+nerd-fonts-complete

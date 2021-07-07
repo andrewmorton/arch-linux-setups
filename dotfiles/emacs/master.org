@@ -255,7 +255,7 @@ Setup org mode with some defaults and custom functions
   (auto-fill-mode 0)
   (visual-line-mode 1)
   (org-bullets-mode 1)
-  (org-agenda-file (expand-file-name "~/zettelkasten/daily-todo/agendas/*"))
+  (org-agenda-files (expand-file-name "~/zettelkasten/daily-todo/agendas/*"))
   (setq evil-auto-indent nil
 	org-startup-indented 1))
 
@@ -505,6 +505,11 @@ TODO: Figure out if I need Node/JS stuff. If so, check out indium.
 (use-package scala-mode
   :interpreter ("scala" . scala-mode))
 #+end_src
+
+**** Julia
+     #+begin_src emacs-lisp
+     (use-package julia-mode)
+     #+end_src
 
      
 * system

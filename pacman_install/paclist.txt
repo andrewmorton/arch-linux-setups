@@ -9,6 +9,7 @@ go
 nodejs-lts-fermium
 npm
 postgresql
+julia
 # Kubernetes stuff
 helm
 minikube
