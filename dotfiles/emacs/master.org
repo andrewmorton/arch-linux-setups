@@ -64,8 +64,7 @@ choices here can be jetbrains mono or any other monospaced font that is installe
 #+end_src
 
 *** Themes
-
-Install and setup Themes
+*** INSTALL and setup Themes
 #+begin_src emacs-lisp
 
 (use-package "cyberpunk-theme")
@@ -75,7 +74,7 @@ Install and setup Themes
 (use-package "zerodark-theme")
 (use-package doom-themes)
 
-(defvar current-theme 'doom-badger)
+(defvar current-theme 'cyberpunk)
 
 (load-theme current-theme t)
 

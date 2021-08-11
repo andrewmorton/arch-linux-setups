@@ -10,6 +10,7 @@ nodejs-lts-fermium
 npm
 postgresql
 julia
+yarn
 # Kubernetes stuff
 helm
 minikube

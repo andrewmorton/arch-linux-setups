@@ -26,6 +26,7 @@ openssl
 dnsutils
 gnome-keyring
 ipcalc
+openvpn
 # Window Server
 xorg
 xorg-apps
