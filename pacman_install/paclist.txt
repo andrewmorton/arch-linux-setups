@@ -28,10 +28,12 @@ ebtables
 dnsmasq
 virtualbox
 dmidecode
-# mit-scheme
 # workflow tools
 mutt
 task
+# Security tools
+yubikey-manager
+yubioath-desktop
 # Nice things
 cowsay
 lolcat
