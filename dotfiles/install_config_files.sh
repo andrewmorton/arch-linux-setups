@@ -11,6 +11,7 @@ mkdir -p $HOME/.config/bspwm
 mkdir -p $HOME/.config/sxhkd
 mkdir -p $HOME/.config/nvim
 mkdir -p $HOME/.config/wired
+mkdir -p $HOME/.config/polybar
 mkdir -p $HOME/Pictures
 
 # Install all dotfiles for system
@@ -21,6 +22,7 @@ ln -sf $this_dir/init.vim $HOME/.config/nvim/init.vim
 ln -sf $this_dir/wired.ron $HOME/.config/wired/wired.ron
 cp $this_dir/emacs/emacs.el $HOME/.emacs.el # Just copy emacs config because it will be replaced
 ln -sf $this_dir/xbindkeysrc $HOME/.xbindkeysrc
+ln -sf $this_dir/polybar_launch.sh $HOME/.config/polybar/launch.sh
 
 # Make sym link to git pictures folder
 ln -sf $this_dir/bg/ $HOME/Pictures/bg

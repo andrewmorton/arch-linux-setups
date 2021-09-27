@@ -1,0 +1,34 @@
+# install google-chrome
+google-chrome
+# Install fonts from AUR
+ttf-unifont
+siji-git
+# Install jetbrains toolbox from AUR
+jetbrains-toolbox
+cython
+ipython
+libdbusmenu-glib
+# Installs element matrix client
+element-desktop
+# installs matrix
+matrix-mirage
+#nvim git v0.5
+neovim-git
+# Install all nerdfonts stuffs
+nerd-fonts-complete
+# Graphics Switching
+optimus-manager
+# Install polybar
+polybar
+# install Slack-Desktop
+slack-desktop
+# Installs microsoft teams from AUR
+teams
+# Install tflint
+tflint
+#Wired, rust notify library
+wired
+# workspaces
+amazon-workspaces-bin
+# install zoom
+zoom
