@@ -402,6 +402,18 @@ Rainbow delimiters to improve usability for all languages
 
 #+end_src
 
+
+Flycheck
+#+begin_src emacs-lisp
+;; Add Flycheck to emacs
+
+(use-package flycheck)
+
+;; Add hook to make use of flycheck whenver a file inits
+(add-hook 'after-init-hook #'global-flycheck-mode)
+
+#+end_src
+
 YaSnippet cuz it's the coolest
 [[https://github.com/joaotavora/yasnippet/blob/master/README.mdown]]
 
