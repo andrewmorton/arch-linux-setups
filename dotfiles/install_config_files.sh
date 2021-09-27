@@ -22,7 +22,10 @@ ln -sf $this_dir/init.vim $HOME/.config/nvim/init.vim
 ln -sf $this_dir/wired.ron $HOME/.config/wired/wired.ron
 cp $this_dir/emacs/emacs.el $HOME/.emacs.el # Just copy emacs config because it will be replaced
 ln -sf $this_dir/xbindkeysrc $HOME/.xbindkeysrc
+
+# Install polybar launch script and config
 ln -sf $this_dir/polybar_launch.sh $HOME/.config/polybar/launch.sh
+ln -sf $this_dir/polybar_config $HOME/.config/polybar/config
 
 # Make sym link to git pictures folder
 ln -sf $this_dir/bg/ $HOME/Pictures/bg
