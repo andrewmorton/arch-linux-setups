@@ -20,7 +20,7 @@ ln -sf $this_dir/bspwmrc $HOME/.config/bspwm/bspwmrc
 ln -sf $this_dir/sxhkdrc $HOME/.config/sxhkd/sxhkdrc
 ln -sf $this_dir/init.vim $HOME/.config/nvim/init.vim
 ln -sf $this_dir/wired.ron $HOME/.config/wired/wired.ron
-cp $this_dir/emacs/emacs.el $HOME/.emacs.el # Just copy emacs config because it will be replaced
+cp $this_dir/emacs/emacs.el $HOME/.emacs.d/init.el # Just copy emacs config because it will be replaced
 ln -sf $this_dir/xbindkeysrc $HOME/.xbindkeysrc
 
 # Install polybar launch script and config
