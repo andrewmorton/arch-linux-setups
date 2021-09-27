@@ -31,5 +31,6 @@ fi
 
 xcompmgr -c -C -t-5 -l-5 -r4.2 -o.55 &
 feh --bg-max --random --recursive $HOME/Pictures/bg &
-kbdrate -r 25 -d 500
+kbdrate -r 25 -d 500 &
+cairo-dock &
 wired &
