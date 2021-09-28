@@ -91,7 +91,6 @@ imagemagick
 ghostscript
 imagemagick-doc
 jq
-yq
 flameshot
 texlive-most
 biber
