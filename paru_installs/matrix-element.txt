@@ -1,0 +1,2 @@
+# Installs element matrix client
+element-desktop

@@ -95,6 +95,7 @@ flameshot
 texlive-most
 biber
 # fonts
+xorg-fonts-misc
 ttf-font
 ttf-liberation
 ttf-cascadia-code

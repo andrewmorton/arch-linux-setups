@@ -22,7 +22,7 @@ function check_error() {
 PS1='[\u@\h \W] - $(check_error)\n$: '
 PS2='=>>'
 
-export PATH="$PATH:/$HOME/bin"
+export PATH="$PATH:/$HOME/bin:$HOME/go/bin"
 export EDITOR="nvim"
 
 # echo fortune
@@ -31,6 +31,7 @@ fortune
 echo -e "\n"
 
 export AWS_PROFILE=qual
+export XDG_CONFIG_HOME="$HOME/.config/"
 
 # The next line updates PATH for the Google Cloud SDK.
 if [ -f '/home/tas/Downloads/google-cloud-sdk/path.bash.inc' ]; then . '/home/tas/Downloads/google-cloud-sdk/path.bash.inc'; fi

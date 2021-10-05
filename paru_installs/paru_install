@@ -10,4 +10,4 @@ then
 	exit 1
 fi
 
-paru -S $( cat "$PACKAGE_LIST" | sed "s/#.*//g" )
+paru -S --needed $( cat "$PACKAGE_LIST" | sed "s/#.*//g" )
