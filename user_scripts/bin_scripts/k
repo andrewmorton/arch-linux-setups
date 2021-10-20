@@ -1,0 +1,241 @@
+#!/bin/bash
+
+ARGS="$@"
+VERSION="1.0.0"
+CONTEXT=$( kubectl config get-contexts | grep '*' | awk '{print $2}' )
+KUBE_ARGS=()
+
+####
+# WISH LIST
+####
+#
+# Add support for kubectl exec -it
+# Add shortcut for kubectl run a --image alpine sleep 60m
+
+function readResponse () {
+    suggestion="$1"
+    local RESPONSE=""
+
+    >&2 echo -n "run $suggestion? [Y/n]: "
+    read RESPONSE
+
+    if [[ $RESPONSE == "" ]] || [[ $RESPONSE == "Y" ]]; then
+	echo "0"
+    else
+	echo "1"
+    fi
+
+}
+
+# Takes ENV var name as an array and appends the given value to array
+function addArgs () {
+    local var="$1"
+    local value="$2"
+
+    eval $( echo "${var}+=($value)" )
+}
+
+# Helper function: targets addArgs with KUBE_ARGS
+function kArgs () {
+    local value="$1"
+    addArgs "KUBE_ARGS" ${value}
+}
+
+function catchDescribeCommand () {
+    local cmd="$1"
+    
+    if [[ "$cmd" =~ describe ]]; then
+	echo "0"
+    else
+	echo "1"
+    fi
+    
+}
+
+# Catch if describe OR get have been specified
+function catchSpecial () {
+    local input="$1"
+    local cmd="$2"
+
+    if [[ "$input" =~ $cmd ]]; then
+	echo $cmd
+    else
+	echo "1"
+    fi
+}
+
+    
+
+# Helper function: runs given command if user agrees
+function runCommandIfPrompt () {
+    local cmd="$1"
+    
+    local PROCEED=$( readResponse "$cmd" )
+
+    if [[ $PROCEED == "0" ]]; then
+	# TODO: fix this up so catchspecial is looking for get or describe
+	if [[ $( catchSpecial "$cmd" ) == "0" ]]; then
+	    export TERM=xterm
+	    ${cmd} | less
+	    echo ""
+	else
+	    ${cmd}
+	    echo ""
+	fi
+    else
+	echo "User aborted"
+	exit 1
+    fi
+}
+
+# Visual stuff
+
+function createBanner () {
+    echo ""
+    echo "--------------------------------------------------------------------------------"
+    echo ""
+}
+
+function usageMessage () {
+    >&2 echo "Usage: k [{-a|-apply}|{-d|-delete}|{-l|-logs}|{-g|-get}] [file|dir|pod|service|deployment]"
+    >&2 echo "Usage: Can try a search term for regex if all else fails"
+    echo "Argument list is empty."
+    echo "Assuming get all."
+    echo ""
+    echo ""
+
+}
+
+
+
+
+echo "k version: $VERSION"
+echo "Using context: $CONTEXT"
+createBanner
+
+# Check if args is empty
+if [[ -z $ARGS ]]; then
+    createBanner
+    kubectl get all
+    createBanner
+    echo "CONTEXT: $CONTEXT"
+    createBanner
+    usageMessage
+    exit 0
+fi
+
+echo "Args supplied: ${ARGS[@]}"
+echo ""
+
+read -ra WORKING_ARRAY <<< "${ARGS[@]}"
+
+for item in "${WORKING_ARRAY[@]}"; do
+    # Add dashed items as kubectl argument
+    if [[ $item =~ ^-.+ ]]; then
+	case ${item:1} in
+	    r|delete)
+		kArgs "delete"
+		;;
+	    a|apply)
+		kArgs "apply"
+		;;
+	    g|get)
+		kArgs "get"
+		;;
+	    l|logs)
+		kArgs "logs"
+		;;
+	    d|describe)
+		kArgs "describe"
+		;;
+	    *)
+		echo "Unrecognized argument: $item"
+		echo "Good luck."
+		kArgs ${item:1}
+		;;
+	esac
+	echo "Kube args: ${KUBE_ARGS[@]}"
+	echo ""
+	continue
+    fi
+
+    # Attempt to apply or delete the manifest if a file or directory is provided
+    if [[ -f $item ]] || [[ -d $item ]]; then
+	if [[ ${#KUBE_ARGS[@]} -ge 1 ]]; then
+	    echo "Using provided args for kubectl."
+	    runCommandIfPrompt "kubectl $( echo ${KUBE_ARGS[@]} ) -f $item"
+	    break && exit 0
+	fi
+	
+	echo "Using $item as File/Dir for Kubectl"
+	runCommandIfPrompt "kubectl apply -f $item"
+	break && exit 0
+    fi
+
+    # Attempt to use kubectl on provided item if not a file or directory
+    if [[ $item =~ pod|service|svc|deployment|secret ]]; then
+	if [[ ${#KUBE_ARGS[@]} -ge 1 ]]; then
+	    echo "Using provided args for kubectl"
+	    echo "Not a file or directory, assuming kubernetes resource"
+	    runCommandIfPrompt "kubectl $( echo ${KUBE_ARGS[@]} ) $item"
+	    exit 0
+	elif [[ $item =~ / ]]; then
+	    if [[ $item =~ \* ]]; then
+		echo "Found '/' element with wildcard."
+		echo "Performing search lookup"
+	    fi
+		
+	    echo "Assuming kubernetes resource name for given '/' element: $item"
+	    runCommandIfPrompt "kubectl describe $item"
+	fi
+    fi
+
+    # Fuzzy Search with Regex if not obvious
+
+    echo "Attempting resource lookup with Regex Search."
+    echo ""
+    R_RESULTS=( $( kubectl get all | grep ".*${item}.*" | awk '{print $1}' | sed "s/$/ /g" | tr -d "\n" ) )
+
+    if ! [[ -z $R_RESULTS ]]; then
+	COUNTER=1
+	clear
+	echo "Ambiguous Item name: $item, but kubectl found"
+	createBanner
+	echo "Found these Resources: "
+
+	# List out all resources found
+	for resource in "${R_RESULTS[@]}"; do
+	    echo "$COUNTER) $resource"
+	    let "COUNTER=COUNTER+1"
+	done
+
+	echo ""
+	echo -n "Which Resource? [1-$(($COUNTER-1))]: "
+	read USER_RESPONSE
+
+	while [[ $USER_RESPONSE -gt ${#R_RESULTS[@]} ]] || [[ $USER_RESPONSE =~ [a-zA-Z] ]]; do
+	    echo -n "Enter a different Number: "
+	    unset USER_RESPONSE
+	    read USER_RESPONSE
+	done
+
+	# Run kubectl with kubeargs if they exist
+	if [[ ${#KUBE_ARGS[@]} -ge 1 ]]; then
+	    echo "Using provided args for kubectl"
+	    echo "Not a file or directory, assuming kubernetes resource"
+	    runCommandIfPrompt "kubectl $( echo ${KUBE_ARGS[@]} ) ${R_RESULTS[$(($USER_RESPONSE-1))]}"
+	    break && exit 0
+	fi
+	# If not, default to describe item
+	echo "No Additional args."
+	echo ""
+	runCommandIfPrompt "kubectl describe ${R_RESULTS[$((USER_RESPONSE-1))]}"
+	break && exit 0
+    else
+	echo "Wasn't able to find $item in 'kubectl get all'"
+	echo "Assuming KUBE_ARGS and running. Good luck"
+	createBanner
+	kubectl $( echo ${KUBE_ARGS[@]} ) $item
+	break && exit 1
+    fi
+done
