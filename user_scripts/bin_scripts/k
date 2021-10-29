@@ -116,7 +116,6 @@ createBanner
 
 # Check if args is empty
 if [[ -z $ARGS ]]; then
-    createBanner
     kubectl get all
     createBanner
     echo "CONTEXT: $CONTEXT"
