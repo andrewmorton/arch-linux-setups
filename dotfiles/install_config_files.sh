@@ -86,6 +86,6 @@ ln -sf "$this_dir/bg" "$HOME/Pictures/bg"
 
 # Install cairo-dock launcher
 
-ln -sf "$this_dir/cairo-launch.sh" "$HOME/.config/cairo-dock/cairo-launch.sh"
+ln -sf "$this_dir/cairo_launch.sh" "$HOME/.config/cairo-dock/cairo_launch.sh"
 
 ##### END Restore dotfiles
