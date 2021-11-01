@@ -37,17 +37,8 @@ function makeConfigDirWithParents() {
 	if ! [[ -d $HOME/.config/$TARGET ]]; then
 		mkdir -p "${HOME}/.config/${TARGET}"
 	fi
-}
-
-function createConfigDirsFromArray() {
-  ARRAY=("${1[@]}")
-
-  for dir in "${ARRAY[@]}"; do
-    makeConfigDirWithParents "$dir"
-  done
 
 }
-
 
 
 
@@ -60,8 +51,9 @@ fi
 
 # Create all dirs from given list
 
-createConfigDirsFromArray "${target_config_dirs[@]}"
-
+for dir in "${target_config_dirs[@]}"; do
+  makeConfigDirWithParents "$dir"
+done
 
 # Install all dotfiles for system
 
