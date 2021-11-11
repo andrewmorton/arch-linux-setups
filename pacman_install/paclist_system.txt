@@ -81,3 +81,4 @@ acpi
 tlp
 # Keybindings
 xbindkeys
+xorg-xfd
