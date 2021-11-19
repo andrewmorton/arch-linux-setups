@@ -8,6 +8,8 @@ e2fsprogs
 lvm2
 # Hardware support
 bluez
+blueman
+pulseaudio-bluetooth
 b43-fwcutter
 linux-headers
 gpm
@@ -27,6 +29,8 @@ dnsutils
 gnome-keyring
 ipcalc
 openvpn
+smbclient
+cifs-utils
 # Window Server
 xorg
 xorg-apps
@@ -78,3 +82,4 @@ acpi
 tlp
 # Keybindings
 xbindkeys
+xorg-xfd
