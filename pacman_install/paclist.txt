@@ -82,6 +82,7 @@ gst-plugins-ugly
 # Applications
 firefox
 konsole
+alacritty
 knewstuff
 knotifyconfig
 kparts

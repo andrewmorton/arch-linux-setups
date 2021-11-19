@@ -67,6 +67,7 @@ htop
 nautilus
 zsh
 zsh-lovers
+xonsh
 bc
 reflector
 xdg-utils
