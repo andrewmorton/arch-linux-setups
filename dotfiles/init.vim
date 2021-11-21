@@ -14,8 +14,6 @@ Plug 'vim-airline/vim-airline'
 Plug 'vim-airline/vim-airline-themes'
 Plug 'airblade/vim-gitgutter'
 
-" Fugitive
-Plug 'tpope/vim-fugitive'
 
 " Polyglot
 Plug 'sheerun/vim-polyglot'
