@@ -8,6 +8,8 @@ e2fsprogs
 lvm2
 # Hardware support
 bluez
+bluez-utils
+bluez-plugins
 blueman
 pulseaudio-bluetooth
 b43-fwcutter
