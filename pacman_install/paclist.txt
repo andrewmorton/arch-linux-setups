@@ -108,3 +108,4 @@ ttf-jetbrains-mono
 jdk11-openjdk
 java11-openjfx
 jdk8-openjdk
+traceroute

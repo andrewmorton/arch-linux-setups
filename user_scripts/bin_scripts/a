@@ -1,0 +1,59 @@
+#!/bin/bash
+
+# Set defaults
+REPO_HOME="$HOME/arch-linux-setups/pacman_install"
+TARGET_PKG="$1"
+TARGET_LIST="$2"
+
+
+# If target list is empty, assume paclist.txt
+if [[ -z "$TARGET_LIST" ]]; then
+  export GLOBAL_LIST="$REPO_HOME/paclist.txt"
+else
+  export GLOBAL_LIST="$REPO_HOME/$TARGET_LIST"
+fi
+
+# Verify if package exists in given list
+function package_already_exists() {
+  local PKG="$1"
+  local PKG_LIST="$2"
+  if [[ -f $PKG_LIST ]]; then
+    if [[ $(grep "$PKG" $PKG_LIST) ]]; then
+      exit 0
+    else
+      exit 1
+    fi
+  else
+    echo "Unable to find list: $PKG_LIST"
+    exit 1
+  fi
+}
+
+# Install package with pacman, update list if successful
+function install_package_to_list() {
+  local PKG="$1"
+  local PKG_LIST="$2"
+
+  if [[  $( package_already_exists $PKG $PKG_LIST ) ]]; then
+    echo "$PKG already exists in $PKG_LIST"
+    exit 1
+  fi
+
+  sudo pacman -S "$PKG"
+
+  if [[  $? -ne 0 ]]; then
+    echo "Pacman install of $PKG did not succeed."
+    echo "Exiting"
+    echo 1
+  else
+    echo "Add $PKG to $PKG_LIST"
+    echo "# Added by script 'a' at $( date +"%Y-%d-%m:%H%M" )" >> $PKG_LIST
+    echo "$PKG" >> $PKG_LIST
+  fi
+}
+
+#-------------------------------------------------------------------------------- 
+# MAIN
+#-------------------------------------------------------------------------------- 
+
+install_package_to_list "$TARGET_PKG" "$GLOBAL_LIST"
