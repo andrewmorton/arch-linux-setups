@@ -85,3 +85,7 @@ tlp
 # Keybindings
 xbindkeys
 xorg-xfd
+# Added by script 'a' at 2022-30-01:1308
+linux-lts
+# Added by script 'a' at 2022-30-01:1309
+linux-lts-headers
