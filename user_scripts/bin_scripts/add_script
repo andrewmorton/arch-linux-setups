@@ -1,0 +1,5 @@
+#!/bin/bash
+
+TARGET="$1"
+
+echo "totals: $(awk '{s+=$1}END{print s}' $TARGET)" >> $TARGET
